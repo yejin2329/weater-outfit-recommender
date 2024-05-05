@@ -9,13 +9,16 @@ function Register(){
     const handleRegistration=async(e)=>{
         e.preventDefault();
 
+        //reset error message every attempt
+        setError('');
+
         if (!validatePassword(password)) {
             setError("Password must be at least 6 characters long, include at least one number and one uppercase letter.");
             return;
         }
 
         if(password!==confirmPassword){
-            alert("Password do not match!")
+            setError("Password do not match!")
             return;
         }
         try{

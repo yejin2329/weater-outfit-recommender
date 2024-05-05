@@ -34,6 +34,11 @@ app.post('/register', (req,res)=>{
   const{userId, password}=req.body;
   //save id and hashed password to database
   
+  //password validation
+  if(!validatePassword(password)){
+      return res.status(400).json({message:"Password does not meet complexity requirements."})
+  }
+
   
   console.log("Registering User:", userId, password);
   res.status(200).json({message:"Registration successful!"})

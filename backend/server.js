@@ -29,6 +29,16 @@ app.post('/login', (req,res)=>{
   }
 })
 
+//register
+app.post('/register', (req,res)=>{
+  const{userId, password}=req.body;
+  //save id and hashed password to database
+  
+  
+  console.log("Registering User:", userId, password);
+  res.status(200).json({message:"Registration successful!"})
+})
+
 function authenticate(userId, password){
   //logic
 

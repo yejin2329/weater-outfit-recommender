@@ -4,9 +4,16 @@ function Register(){
     const [userId, setUserId]=useState('');
     const [password, setPassword]=useState('');
     const [confirmPassword, setConfirmPassword]=useState('');
+    const [error, setError]=useState('');
 
     const handleRegistration=async(e)=>{
         e.preventDefault();
+
+        if (!validatePassword(password)) {
+            setError("Password must be at least 6 characters long, include at least one number and one uppercase letter.");
+            return;
+        }
+
         if(password!==confirmPassword){
             alert("Password do not match!")
             return;
@@ -32,9 +39,14 @@ function Register(){
     
     }
 
+    function validatePassword(password){
+        return password.length>=6 && /[A-Z]/.test(password) &&  /\d/.test(password);
+    }
+
     return(
         <div>
             <h2>Register</h2>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             <form onSubmit={handleRegistration}>
                 <div>
                     <label htmlFor="userId">User ID:</label>

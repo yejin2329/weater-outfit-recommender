@@ -5,12 +5,14 @@ function Register(){
     const [password, setPassword]=useState('');
     const [confirmPassword, setConfirmPassword]=useState('');
     const [error, setError]=useState('');
+    const [success, setSuccess]=useState('');
 
     const handleRegistration=async(e)=>{
         e.preventDefault();
 
-        //reset error message every attempt
+        //reset error,success message every attempt
         setError('');
+        setSuccess('');
 
         if (!validatePassword(password)) {
             setError("Password must be at least 6 characters long, include at least one number and one uppercase letter.");
@@ -31,13 +33,15 @@ function Register(){
         })
         const data=await response.json();
         if(response.ok){
+            setSuccess("Registration successful!")
             console.log("Registration successful: ", data);
             //redirect to login page
         }else{
-            console.error("Registration failed: ", data.message);
+            setError(data.message||"Registration failed!");
         }
         }catch(error){
             console.error("Registration error: ", error);
+            setError("Failed to register due to network error.");
         }
     
     }
@@ -50,6 +54,7 @@ function Register(){
         <div>
             <h2>Register</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
+            {success && <p style={{color:'green'}}>{success}</p>}
             <form onSubmit={handleRegistration}>
                 <div>
                     <label htmlFor="userId">User ID:</label>

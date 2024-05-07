@@ -1,4 +1,5 @@
 const express = require('express');
+const cors=require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json()); //for parsing application/json
-
+app.use(cors());
 //mongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -41,7 +42,7 @@ app.get('/', (req, res) => {
 //login
 app.post('/login', async(req,res)=>{
   const {userId, password}=req.body;
-
+  console.log('Received login request for userId:', userId)
   try{
     const user=await User.findOne({userId})
     if(!user){
@@ -50,8 +51,10 @@ app.post('/login', async(req,res)=>{
     //verify password
     const isMatch=await bcrypt.compare(password, user.password);
     if(isMatch){
+      console.log('Password match, login successful');
       res.status(200).json({message:"Login successful!"})
     }else{
+      console.log('Password mismatch, login failed');
       res.status(401).json({message:"Login failed!"})
     }
   }catch(error){

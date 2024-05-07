@@ -3,10 +3,31 @@ import React, {useState} from 'react';
 function Login(){
     const [userId, setUserId]=useState('');
     const [password, setPassword]=useState('');
+    const [loginMessage,setLoginMessage]=useState('');
 
-    const handleLogin=(e)=>{
+    const handleLogin=async(e)=>{
         e.preventDefault();
         console.log('Logging in with:', userId, password);
+
+        try {
+            const response = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, password })
+            });
+            const data=await response.json();
+            if(response.ok){
+                setLoginMessage('Login successful!');
+                console.log(data.message);
+            }else{
+                setLoginMessage(data.message||'Login failed!')
+            }
+            }catch(error){
+                console.error('Login request failed:', error)
+                setLoginMessage('Login request failed. Please check the console for more information.');
+            }
     }
     return(
         <div>
@@ -32,6 +53,7 @@ function Login(){
                 </div>
                 <button type="submit">Login</button>
             </form>
+            {loginMessage && <p>{loginMessage}</p>} 
         </div>
     )
 }

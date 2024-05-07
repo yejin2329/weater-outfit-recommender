@@ -3,11 +3,12 @@ import {Link} from 'react-router-dom';
 
 function MainPage(){
     return(
-        <div>
+        <div className="page-container">
             <h1>Welcome to the Weather-Based Outfit Recommender</h1>
             <p>Get your outfit recommendation based on today's weather.</p>
-            <Link to="/login"><button>Login</button></Link>
-            <p>Don't have an account? <Link to="/register">Click here to register</Link></p>
+            <div className="auth-links">
+            <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
+            </div>
         </div>
     )
 }

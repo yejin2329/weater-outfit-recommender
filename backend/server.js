@@ -1,5 +1,6 @@
-const express = require('express');
 const cors=require('cors');
+const express = require('express');
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
@@ -27,7 +28,7 @@ mongoose.connection.on('error', (err)=>{
 })
 
 mongoose.connection.on('disconnected', ()=>{
-  console.log('MongoDB disconnected');
+  console.log('MongoDB disconnected, attempting to reconnect..');
   //attempt to reconnect
   mongoose.connect(process.env.MONGODB_URI,{
     useNewUrlParser:true,

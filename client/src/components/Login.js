@@ -57,6 +57,7 @@ function Login(){
                 <button type="submit">Login</button>
             </form>
             {loginMessage && <p>{loginMessage}</p>} 
+            <p>Don't have an account? <Link to="/register">Register</Link></p>
         </div>
     )
 }

@@ -9,6 +9,14 @@ function MainPage(){
             <div className="auth-links">
             <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
             </div>
+
+            <div className="scene">
+                <div className="snowflakes"></div>
+                <div className="person">
+                    <div className="umbrella"></div>
+                </div>
+          </div>
+      
         </div>
     )
 }

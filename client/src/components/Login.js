@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 function Login(){
     const [userId, setUserId]=useState('');
     const [password, setPassword]=useState('');
     const [loginMessage,setLoginMessage]=useState('');
+   
 
     const handleLogin=async(e)=>{
         e.preventDefault();
@@ -21,6 +23,7 @@ function Login(){
             if(response.ok){
                 setLoginMessage('Login successful!');
                 console.log(data.message);
+                window.location.href = '/'; //redirect to mainpage
             }else{
                 setLoginMessage(data.message||'Login failed!')
             }

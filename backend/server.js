@@ -65,10 +65,14 @@ app.post('/login', async(req,res)=>{
  
 })
 
+//validate password
+function validatePassword(password) {
+  return password.length >= 6 && /[A-Z]/.test(password) && /\d/.test(password);
+}
+
 //register
 app.post('/register', async(req,res)=>{
   const{userId, password}=req.body;
-  //save id and hashed password to database
   
   //password validation
   if(!validatePassword(password)){
@@ -84,8 +88,9 @@ app.post('/register', async(req,res)=>{
     userId,
     password:hashedPassword
   })
-
+  //save the new user to the database
   await newUser.save();
+  
   res.status(200).json({message:"Registration successful!"})
 }catch(error){
   if(error.code===11000){

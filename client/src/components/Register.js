@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-
+import {Link} from 'react-router-dom';
 
 function Register(){
     const [userId, setUserId]=useState('');
@@ -86,6 +86,7 @@ function Register(){
                 </div>
                 <button type="submit">Register</button>
             </form>
+            <p>Already have an account? <Link to="/login">Login</Link></p>
         </div>
     )
 }

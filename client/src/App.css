@@ -22,3 +22,46 @@
   text-decoration: underline;
 }
 
+/*animation css */
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #87CEEB;
+}
+
+/*
+.snowflakes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('snowflake.png'); 
+  background-repeat: repeat;
+  animation: falling-snow 10s linear infinite;
+}
+*/
+.person {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*
+.umbrella {
+  width: 100px;
+  height: 100px;
+  background-image: url('umbrella.png');
+  background-repeat: no-repeat;
+  animation: umbrella-shake 0.5s infinite alternate;
+}
+*/
+
+@keyframes falling-snow {
+  0% {
+      background-position: 0px 0px;
+  }
+  100% {
+      background-position: 0px 2000px;
+  }
+}

@@ -11,7 +11,10 @@ function MainPage(){
             </div>
 
             <div className="scene">
-                <div className="snowflakes"></div>
+                <div className="snowflakes">
+                <div class="snowflake"></div>
+                
+                </div>
                 <div className="person">
                     <div className="umbrella"></div>
                 </div>

@@ -4,7 +4,7 @@
   */
   text-align: center;
   padding: 20px;
-
+  font-family: Arial, sans-serif;
 }
 
 .auth-links {
@@ -33,16 +33,22 @@
   height:100%;
 }
 
-/*
+
 .snowflakes {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url('snowflake.png'); 
-  background-repeat: repeat;
-  animation: falling-snow 10s linear infinite;
+  pointer-events: none;
 }
-*/
+
+.snowflake{
+  position: absolute;
+  width:20px;
+  height:20px;
+  background-color:#fff;
+  border-radius:50%;
+  pointer-events:none;
+}
 .person {
   position: absolute;
   bottom: 0;

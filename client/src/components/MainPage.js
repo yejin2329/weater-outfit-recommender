@@ -12,7 +12,7 @@ function MainPage(){
 
             <div className="scene">
                 <div className="snowflakes">
-                <div class="snowflake"></div>
+                <div className="snowflake"></div>
                 
                 </div>
                 <div className="person">

@@ -1,7 +1,41 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 function MainPage(){
+    useEffect(()=>{
+        //function to generate random number
+        function getRandomNumber(min,max){
+            return Math.random()*(max-min)+min;
+        }
+        //function to create new snowflake element
+        function createSnowflake(){
+            const snowflake=document.createElement('div')
+            snowflake.className='snowflake';
+
+            const size=getRandomNumber(5,15)+'px'
+            snowflake.style.width=size;
+            snowflake.style.height=size;
+
+            const top=getRandomNumber(0,100)+'%'
+            const left=getRandomNumber(0,100)+'%'
+            snowflake.style.top=top
+            snowflake.style.left=left
+            
+            document.getElementById('snowflakes-container').appendChild(snowflake);
+        }
+
+        //functino to create multiple snowflakes
+        function createSnowflakes(count){
+            for(let i=0; i<count; i++){
+                createSnowflake();
+            }
+        }
+        window.onload=function(){
+        //create 50 snowflakes
+        createSnowflakes(50);
+        }
+    },[])
+
     return(
         <div className="page-container">
             <h1>Welcome to the Weather-Based Outfit Recommender</h1>
@@ -11,10 +45,7 @@ function MainPage(){
             </div>
 
             <div className="scene">
-                <div className="snowflakes">
-                <div className="snowflake"></div>
-                
-                </div>
+            <div className="snowflakes" id="snowflakes-container"></div>
                 <div className="person">
                     <div className="umbrella"></div>
                 </div>

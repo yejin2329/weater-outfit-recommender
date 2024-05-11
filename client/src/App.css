@@ -28,7 +28,7 @@
 .scene {
 
   background-color: #87CEEB;
-  min-height:500px;
+  min-height:600px;
   width:100%;
   height:100%;
 }
@@ -49,6 +49,7 @@
   border-radius:50%;
   pointer-events:none;
 }
+
 .person {
   position: absolute;
   bottom: 0;
@@ -64,7 +65,7 @@
   background-repeat: no-repeat;
   animation: umbrella-shake 0.5s infinite alternate;
 }
-*/
+
 
 @keyframes falling-snow {
   0% {
@@ -72,5 +73,15 @@
   }
   100% {
       background-position: 0px 2000px;
+  }
+}
+*/
+
+@keyframes falling-snow {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
   }
 }

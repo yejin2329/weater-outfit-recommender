@@ -1,7 +1,10 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import {useAuth} from '../contexts/AuthContext';
 
 function MainPage(){
+    const{user, logout}=useAuth();
+
     useEffect(()=>{
         //function to generate random number
         function getRandomNumber(min,max){
@@ -30,10 +33,10 @@ function MainPage(){
                 createSnowflake();
             }
         }
-        window.onload=function(){
+       
         //create 50 snowflakes
         createSnowflakes(50);
-        }
+        
     },[])
 
     return(
@@ -41,7 +44,17 @@ function MainPage(){
             <h1>Welcome to the Weather-Based Outfit Recommender</h1>
             <p>Get your outfit recommendation based on today's weather.</p>
             <div className="auth-links">
-            <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
+                {user?(
+                    <div>
+                        <span>Welcome, {user.name}!</span>
+                        <button onClick={logout}>Logout</button>
+                    </div>
+                ):(
+                    <>
+                        <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
+                    </>
+                )}
+             
             </div>
 
             <div className="scene">

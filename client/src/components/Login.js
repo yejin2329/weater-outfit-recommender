@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {useAuth} from '../contexts/AuthContext';
 
 function Login(){
     const [userId, setUserId]=useState('');
     const [password, setPassword]=useState('');
     const [loginMessage,setLoginMessage]=useState('');
-   
+    const {login}=useAuth();
+    const navigate=useNavigate();
 
     const handleLogin=async(e)=>{
         e.preventDefault();
@@ -22,8 +24,8 @@ function Login(){
             const data=await response.json();
             if(response.ok){
                 setLoginMessage('Login successful!');
-                console.log(data.message);
-                window.location.href = '/'; //redirect to mainpage
+                login(data.name);
+                navigate('/'); //redirect to mainpage
             }else{
                 setLoginMessage(data.message||'Login failed!')
             }
@@ -46,7 +48,7 @@ function Login(){
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Passwored:</label>
+                    <label htmlFor="password">Password:</label>
                     <input type="password"
                             id="password"
                             value={password}

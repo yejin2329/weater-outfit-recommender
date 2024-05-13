@@ -23,11 +23,14 @@ function Login(){
             });
             const data=await response.json();
             if(response.ok){
+                console.log('Login successful, received data:',data);
                 setLoginMessage('Login successful!');
-                login(data.name);
+                login(data.userId);
                 navigate('/'); //redirect to mainpage
             }else{
+                const data=await response.json()
                 setLoginMessage(data.message||'Login failed!')
+                console.log('Login faled, received data:',data)
             }
             }catch(error){
                 console.error('Login request failed:', error)

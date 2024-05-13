@@ -4,7 +4,8 @@ import {useAuth} from '../contexts/AuthContext';
 
 function MainPage(){
     const{user, logout}=useAuth();
-
+    console.log('User in MainPage:', user);
+    
     useEffect(()=>{
         //function to generate random number
         function getRandomNumber(min,max){

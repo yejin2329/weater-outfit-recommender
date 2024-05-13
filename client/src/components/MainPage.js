@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 
 function MainPage(){
+    const [location, setLocation]=useState(null);
+    const [weather, setWeather]=useState(null);
+
     const{user, logout}=useAuth();
     console.log('User in MainPage:', user);
-    
+
     useEffect(()=>{
         //function to generate random number
         function getRandomNumber(min,max){
@@ -28,7 +31,7 @@ function MainPage(){
             document.getElementById('snowflakes-container').appendChild(snowflake);
         }
 
-        //functino to create multiple snowflakes
+        //function to create multiple snowflakes
         function createSnowflakes(count){
             for(let i=0; i<count; i++){
                 createSnowflake();
@@ -38,6 +41,17 @@ function MainPage(){
         //create 50 snowflakes
         createSnowflakes(50);
         
+        navigator.geolocation.getCurrentPosition(
+            (position)=>{
+                setLocation({
+                    latitude:position.coords.latitude,
+                    longitude:position.coords.longitude
+                })
+            },
+            ()=>{
+                alert('Location access denied. Unable to fetch weather data')
+            }
+        )
     },[])
 
     return(

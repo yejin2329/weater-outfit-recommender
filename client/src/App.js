@@ -4,7 +4,7 @@ import {AuthProvider} from './contexts/AuthContext';
 import MainPage from './components/MainPage';
 import Login from './components/Login';
 import Register from './components/Register';
-
+import ForgotPassword from './components/ForgotPassword';
 
 import './App.css';
 
@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<MainPage />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
       </Routes>
       </AuthProvider>
     </Router>

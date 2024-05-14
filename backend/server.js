@@ -1,5 +1,7 @@
 const cors=require('cors');
 const express = require('express');
+const crypto=require('crypto');
+const nodemailer=require('nodemailer');
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -102,6 +104,47 @@ app.post('/register', async(req,res)=>{
 }
 })
 
+//email
+let transporter=nodemailer.createTransport({
+  service: 'gmail',
+  auth:{
+    user:process.env.EMAIL_USER,
+    pass:process.env.EMAIL_PASS
+  }
+})
+
+app.post('/forgot-password', async(req,res)=>{
+  const {email}=req.body;
+  const user=await User.findOne({email:email})
+  if(!user){
+    return res.status(404).send('No account with this email address exists.')
+  }
+  //generate token
+  const token= crypto.randomBytes(20).toString('hex');
+
+  //set token and expiry in database
+  user.resetPasswordToken=token;
+  user.resetPasswordExpires=Date.now()+3600000;
+  await user.save();
+
+  //send email
+  let mailOptions = {
+    from: 'yourgmail@gmail.com',
+    to: 'recipient@example.com',
+    subject: 'Sending Email using Node.js',
+    text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.'
+          
+  };
+
+  transporter.sendMail(mailOptions, function(error,info){
+    if(error){
+      console.log(error)
+    }
+    else{
+      console.log('Email sent: '+ info.response);
+    }
+  })
+})
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

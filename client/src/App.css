@@ -123,3 +123,12 @@ label {
   margin-left: 20px;
   padding: 20px;
 }
+
+/*Forgotpassword page*/
+.forgot-container{
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  margin-left: 20px;
+  padding: 20px;
+}

@@ -66,7 +66,7 @@ function MainPage(){
                     </div>
                 ):(
                     <>
-                        <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
+                        <Link to="/login">Login</Link> &nbsp; | <Link to="/register">Register</Link>
                     </>
                 )}
              

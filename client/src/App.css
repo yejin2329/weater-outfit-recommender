@@ -85,3 +85,41 @@
     transform: translateY(100vh) rotate(360deg);
   }
 }
+
+
+/*Register page*/
+form {
+  display: block;
+  width: 100%; 
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+
+}
+
+form div {
+  margin-bottom: 20px; 
+}
+
+label {
+  display: block; 
+  margin-bottom: 5px; 
+  font-size: 16px; 
+}
+
+.registration-container {
+  text-align: left; 
+  width: 100%;
+  max-width: 500px; 
+
+  padding: 20px;
+}
+
+/*Login page */
+.form-container {
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  margin-left: 20px;
+  padding: 20px;
+}

@@ -30,6 +30,7 @@ function ForgotPassword() {
 
     return (
         <div>
+            <div className="forgot-container">
             <h2>Forgot Password</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -40,6 +41,7 @@ function ForgotPassword() {
             </form>
             {message && <p>{message}</p>}
             <Link to="/login">Back to Login</Link>
+            </div>
         </div>
     );
 }

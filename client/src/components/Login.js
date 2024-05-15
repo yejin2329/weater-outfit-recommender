@@ -39,6 +39,7 @@ function Login(){
     }
     return(
         <div>
+            <div className="form-container">
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
@@ -64,6 +65,7 @@ function Login(){
             {loginMessage && <p>{loginMessage}</p>} 
             <p>Don't have an account? <Link to="/register">Register</Link></p>
             <p><Link to="/forgot-password">Forgot Password?</Link></p>
+            </div>
         </div>
     )
 }

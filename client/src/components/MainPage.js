@@ -19,7 +19,7 @@ function MainPage(){
             const snowflake=document.createElement('div')
             snowflake.className='snowflake';
 
-            const size=getRandomNumber(5,15)+'px'
+            const size=getRandomNumber(10,15)+'px'
             snowflake.style.width=size;
             snowflake.style.height=size;
 
@@ -39,7 +39,7 @@ function MainPage(){
         }
        
         //create 50 snowflakes
-        createSnowflakes(50);
+        createSnowflakes(40);
         
         navigator.geolocation.getCurrentPosition(
             (position)=>{

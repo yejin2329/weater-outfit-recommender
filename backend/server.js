@@ -78,7 +78,7 @@ app.post('/register', async(req,res)=>{
   
   //password validation
   if(!validatePassword(password)){
-      return res.status(400).json({message:"Password does not meet complexity requirements."})
+      return res.status(400).json({message:"Password must be at least 6 characters long, include at least one number and one uppercase letter."})
   }
 
   //hash password

@@ -11,7 +11,7 @@ function Login(){
 
     const handleLogin=async(e)=>{
         e.preventDefault();
-        console.log('Logging in with:', userId, password);
+        //console.log('Logging in with:', userId, password);
 
         try {
             const response = await fetch('http://localhost:5000/login', {
@@ -30,7 +30,7 @@ function Login(){
             }else{
                 const data=await response.json()
                 setLoginMessage(data.message||'Login failed!')
-                console.log('Login faled, received data:',data)
+                console.log('Login failed, received data:',data)
             }
             }catch(error){
                 console.error('Login request failed:', error)

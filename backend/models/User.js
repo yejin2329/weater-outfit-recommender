@@ -15,6 +15,11 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true,
         unique:true
+    },
+    clothingPreferences: {
+        cold: { type: String },
+        hot: { type: String },
+        rainy: { type: String }
     }
 })
 

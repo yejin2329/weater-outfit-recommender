@@ -20,6 +20,11 @@ const userSchema=new mongoose.Schema({
         cold: { type: String },
         hot: { type: String },
         rainy: { type: String }
+    },
+    weatherSensitivity: {
+        coldSensitive: { type: Boolean },
+        heatSensitive: { type: Boolean },
+        windSensitive: { type: Boolean }
     }
 })
 

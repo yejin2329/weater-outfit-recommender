@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useAuth} from '../contexts/AuthContext';
 
 function ClothingPreferences() {
     const [preferences, setPreferences] = useState({
@@ -24,15 +25,23 @@ function ClothingPreferences() {
         const response = await fetch('/api/users/preferences', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ preferences, sensitivity })
+            body: JSON.stringify({ 
+               // userId:userId,
+                preferences:preferences,
+                sensitivity: sensitivity })
         });
         const data = await response.json();
-        // Handle response
+        if(response.ok){
+            console.log('Preferences updated:',data);
+        }else{
+            console.error('Failed to update preferences:',data.message)
+        }
     };
 
     return (
         <div>
-            <h1>Set Your Preferences</h1>
+            <div className="preferences-container">
+            <h2>Set Your Preferences</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Cold Weather Clothing:</label>
@@ -60,6 +69,7 @@ function ClothingPreferences() {
                 </div>
                 <button type="submit">Update Preferences</button>
             </form>
+            </div>
         </div>
     );
 }

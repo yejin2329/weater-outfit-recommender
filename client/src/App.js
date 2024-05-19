@@ -5,7 +5,7 @@ import MainPage from './components/MainPage';
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
-import ClothingPreferences from './components/ClothingPreferences';
+import Settings from './components/Settings';
 
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/forgot-password" element={<ForgotPassword/>}/>
-        <Route path="/clothing-preferences" element={<ClothingPreferences/>}/>
+        <Route path="/settings" element={<Settings/>}/>
       </Routes>
       </AuthProvider>
     </Router>

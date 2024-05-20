@@ -31,8 +31,10 @@ function ClothingPreferences() {
         setSensitivity({ ...sensitivity, [e.target.name]: e.target.checked });
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         console.log('Submitting preference...')
+        
         const response = await fetch('/api/users/preferences', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -79,7 +81,7 @@ function ClothingPreferences() {
                 <button type="submit">Update Preferences</button>
             </form>
             </div>
-            <p>Back to Main Page <Link to="/">Main Page</Link></p>
+            <p>Back to <Link to="/">Main Page</Link></p>
         </div>
     );
 }

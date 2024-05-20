@@ -3,6 +3,8 @@ import {useAuth} from '../contexts/AuthContext';
 import {Link} from 'react-router-dom';
 
 function ClothingPreferences() {
+    const {user}=useAuth();
+
     const [preferences, setPreferences] = useState({
         cold: '',
         hot: '',
@@ -30,11 +32,12 @@ function ClothingPreferences() {
     };
 
     const handleSubmit = async () => {
+        console.log('Submitting preference...')
         const response = await fetch('/api/users/preferences', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-               // userId:userId,
+                userId:user.id,
                 preferences:preferences,
                 sensitivity: sensitivity })
         });
@@ -76,7 +79,7 @@ function ClothingPreferences() {
                 <button type="submit">Update Preferences</button>
             </form>
             </div>
-            <p>Already have an account? <Link to="/login">Login</Link></p>
+            <p>Back to Main Page <Link to="/">Main Page</Link></p>
         </div>
     );
 }

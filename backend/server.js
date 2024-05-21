@@ -146,6 +146,10 @@ app.post('/forgot-password', async(req,res)=>{
   })
 })
 
+app.post('/api/users/preferences', (req,res)=>{
+
+  res.json({message:"Preferences updated successfully!"});
+})
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

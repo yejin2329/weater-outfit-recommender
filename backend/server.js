@@ -146,9 +146,30 @@ app.post('/forgot-password', async(req,res)=>{
   })
 })
 
-app.post('/api/users/preferences', (req,res)=>{
-
-  res.json({message:"Preferences updated successfully!"});
+app.post('/api/users/preferences', async(req,res)=>{
+  const {userId, preferences, sensitivity}=req.body;
+  try{
+    //find user by userId and updates preferences
+    const updatedUser=await User.findOneAndUpdate(
+      {usrId:userId},
+      {$set:{
+        clothingPreferences:preferences,
+        weatherSensitivity:sensitivity
+      }},
+      //return to updated 
+      {new:true}
+  
+    )
+    if(updatedUser){
+      res.json({message:"Preferences updated successfully!", updatedUser});
+    }else{
+      res.status(404).send("User not found");
+    }
+  }catch(error){
+    console.error("Error updating preferences:", error);
+    res.status(500).send("Error updating preferences");
+  }
+  
 })
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

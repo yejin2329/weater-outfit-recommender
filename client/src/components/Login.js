@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 
 function Login(){
-    const [userId, setUserId]=useState('');
+    const [username, setUsername]=useState('');
     const [password, setPassword]=useState('');
     const [loginMessage,setLoginMessage]=useState('');
     const {login}=useAuth();
@@ -19,13 +19,13 @@ function Login(){
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ userId, password })
+                body: JSON.stringify({ userId:username, password:password })
             });
            
             if(response.ok){
                 const data=await response.json();
                 console.log('Login successful, received data:',data);
-                login({id:data.userId, name:data.userName}) //updates
+                login({id:data.userId, name:username}) //updates
                 setLoginMessage('Login successful!');
                 navigate('/'); //redirect to mainpage
             }else{
@@ -47,8 +47,8 @@ function Login(){
                     <label htmlFor="userId">User ID:</label>
                     <input type= "text"
                             id="userId"
-                            value={userId}
-                            onChange={(e)=>setUserId(e.target.value)}
+                            value={username}
+                            onChange={(e)=>setUsername(e.target.value)}
                             required
                     />
                 </div>

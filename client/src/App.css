@@ -93,7 +93,7 @@ form {
   width: 100%; 
   max-width: 500px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 15px;
 
 }
 
@@ -112,7 +112,7 @@ label {
   width: 100%;
   max-width: 500px; 
   margin-left: 20px;
-  padding: 20px;
+  padding: 15px;
 }
 
 .registration-container h2, .form-container h2, .forgot-container h2{
@@ -125,7 +125,7 @@ label {
   width: 100%;
   max-width: 500px;
   margin-left: 20px;
-  padding: 20px;
+  padding: 15px;
 }
 
 /*Forgotpassword page*/
@@ -140,12 +140,12 @@ label {
 /*Preferences page*/
 .preferences-container{
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   font-family: Arial, sans-serif;
 }
 
 /*setting */
 .setting-container{
-  padding: 20px;
+  padding: 15px;
   font-family: Arial, sans-serif;
 }

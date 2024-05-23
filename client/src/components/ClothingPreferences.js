@@ -17,9 +17,9 @@ function ClothingPreferences() {
     });
 
     const clothingOptions = {
-        cold: ["Heavy Coat", "Thermal Jacket", "Sweater", "Other"],
-        hot: ["T-shirt", "Shorts", "Light Dress", "Other"],
-        rainy: ["Raincoat", "Waterproof Jacket", "Poncho", "Other"]
+        cold: ["Heavy Coat", "Thermal Jacket", "Sweater", "Fleece Jacket", "Down Jacket", "Wool Coat", "Long Underwear", "Scarves, Hats, and Gloves", "Snow Boots", "Other"],
+        hot: ["T-shirt", "Shorts", "Light Dress","Tank Top", "Linen Shirt", "Sun Hat", "Sandals", "Capri Pants", "Other"],
+        rainy: ["Raincoat", "Waterproof Jacket", "Poncho", "Umbrella", "Waterproof Pants", "Rubber Boots", "Water-Resistant Backpack", "Waterproof Hat", "Quick-Dry Clothing", "Other"]
     };
     
 

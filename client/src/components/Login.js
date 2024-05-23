@@ -19,13 +19,13 @@ function Login(){
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ userId:username, password:password })
+                body: JSON.stringify({ username, password })
             });
            
             if(response.ok){
                 const data=await response.json();
                 console.log('Login successful, received data:',data);
-                login({id:data.userId, name:username}) //updates
+                login({id:data.userId, name:data.username}) //updates
                 setLoginMessage('Login successful!');
                 navigate('/'); //redirect to mainpage
             }else{

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 
 function Register(){
-    const [userId, setUserId]=useState('');
+    const [username, setUserName]=useState('');
     const [password, setPassword]=useState('');
     const [confirmPassword, setConfirmPassword]=useState('');
     const [email, setEmail]=useState('');
@@ -36,7 +36,7 @@ function Register(){
                 headers:{
                     'Content-type':'application/json'
                 },
-                body:JSON.stringify({userId, password, email})
+                body:JSON.stringify({username, password, email})
         })
         const data=await response.json();
         if(response.ok){
@@ -82,8 +82,8 @@ function Register(){
                     <label htmlFor="userId">User ID:</label>
                     <input type="text"
                             id="userId"
-                            value={userId}
-                            onChange={(e)=>setUserId(e.target.value)}
+                            value={username}
+                            onChange={(e)=>setUserName(e.target.value)}
                             required
                     />
                 </div>

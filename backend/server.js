@@ -45,10 +45,10 @@ app.get('/', (req, res) => {
 
 //login
 app.post('/login', async(req,res)=>{
-  const {userId, password}=req.body;
-  console.log('Received login request for userId:', userId)
+  const {username, password}=req.body;
+  console.log('Received login request for username:', username)
   try{
-    const user=await User.findOne({userId})
+    const user=await User.findOne({username:username})
     if(!user){
       return res.status(401).json({message:"Login failed!"});
     }
@@ -56,7 +56,7 @@ app.post('/login', async(req,res)=>{
     const isMatch=await bcrypt.compare(password, user.password);
     if(isMatch){
       console.log('Password match, login successful');
-      res.status(200).json({message:"Login successful!", userId:user.userId})
+      res.status(200).json({message:"Login successful!", userId:user.userId, username:user.username})
     }else{
       console.log('Password mismatch, login failed');
       res.status(401).json({message:"Login failed!"})

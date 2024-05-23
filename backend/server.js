@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 const User=require('./models/User');
+const{v4:uuidv4}=requie('uuid');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -74,7 +75,7 @@ function validatePassword(password) {
 
 //register
 app.post('/register', async(req,res)=>{
-  const{userId, password}=req.body;
+  const{username, password}=req.body;
   
   //password validation
   if(!validatePassword(password)){
@@ -87,13 +88,14 @@ app.post('/register', async(req,res)=>{
 
   //new user instance and save in database
   const newUser=new User({
-    userId,
+    username:username,
+    userId:uuidv4(), //generate UUID for users
     password:hashedPassword
   })
   //save the new user to the database
   await newUser.save();
   
-  res.status(200).json({message:"Registration successful!"})
+  res.status(200).json({message:"Registration successful!",userId: newUser.userId})
 }catch(error){
   if(error.code===11000){
     //handle duplicate key

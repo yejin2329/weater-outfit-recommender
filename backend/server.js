@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 const User=require('./models/User');
-const{v4:uuidv4}=requie('uuid');
+const{v4:uuidv4}=require('uuid');
 
 const app = express();
 const PORT = process.env.PORT || 5000;

@@ -65,7 +65,7 @@ function MainPage(){
                         <span>Welcome, {user.name}!</span>
                         <button onClick={logout}>Logout</button>
                         <br/>
-                        <Link to="/settings">Manage Settings</Link>
+                        <Link to="/settings" className="settings-link">Manage Settings</Link>
                     </div>
                 ):(
                     <>

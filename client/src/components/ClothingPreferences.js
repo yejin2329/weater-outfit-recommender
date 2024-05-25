@@ -33,7 +33,8 @@ function ClothingPreferences() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Submitting preference...')
+        //debug statement
+        console.log('Submitting preference for user ID:', user.id);
         
         const response = await fetch('http://localhost:5000/api/users/preferences', {
             method: 'POST',

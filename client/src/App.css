@@ -57,6 +57,9 @@
   transform: translateX(-50%);
 }
 
+.settings-link{
+  margin-right:90px;
+}
 /*
 .umbrella {
   width: 100px;

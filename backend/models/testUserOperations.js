@@ -13,6 +13,7 @@ mongoose.connect(process.env.MONGODB_URI)
 .catch(err => console.error('MongoDB connection error:', err));
 
 async function createUser() {
+    console.log("Attempting to create user...");
     try {
         const hashedPassword=await bcrypt.hash('testPassword2',10)
         const newUser = new User({

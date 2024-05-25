@@ -35,7 +35,7 @@ function ClothingPreferences() {
         e.preventDefault();
         console.log('Submitting preference...')
         
-        const response = await fetch('http://localhost:5000/settings', {
+        const response = await fetch('http://localhost:5000/api/users/preferences', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 

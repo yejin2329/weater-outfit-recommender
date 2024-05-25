@@ -153,7 +153,7 @@ app.post('/api/users/preferences', async(req,res)=>{
   try{
     //find user by userId and updates preferences
     const updatedUser=await User.findOneAndUpdate(
-      {usrId:userId},
+      {userId:userId},
       {$set:{
         clothingPreferences:preferences,
         weatherSensitivity:sensitivity

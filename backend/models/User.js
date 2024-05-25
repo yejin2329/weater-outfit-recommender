@@ -22,14 +22,14 @@ const userSchema=new mongoose.Schema({
         unique:true
     },
     clothingPreferences: {
-        cold: { type: String },
-        hot: { type: String },
-        rainy: { type: String }
+        cold:  String ,
+        hot: String ,
+        rainy: String 
     },
     weatherSensitivity: {
-        coldSensitive: { type: Boolean },
-        heatSensitive: { type: Boolean },
-        windSensitive: { type: Boolean }
+        coldSensitive:  Boolean,
+        heatSensitive: Boolean,
+        windSensitive: Boolean 
     }
 })
 

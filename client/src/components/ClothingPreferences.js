@@ -40,7 +40,7 @@ function ClothingPreferences() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                userId:user.Id,
+                userId:user.id,
                 preferences:preferences,
                 sensitivity: sensitivity })
         });

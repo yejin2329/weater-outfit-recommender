@@ -57,6 +57,23 @@ async function fetchWeather(lat,lon){
   }
 }
 
+//fetch weather data
+app.get('/weather', async(req,res)=>{
+  const{userId}=req.query;
+  try{
+    const user=await User.findById(userId);
+    if(user&&user.defaultLocation){
+      const weatherData=await fetchWeather(user.defaultLocation.latitude, user.defaultLocation.longitude)
+      res.json(weatherData);
+    }else{
+      res.status(404).send("User or location not found");
+    }
+  }catch(error){
+    console.error("Error fetching weather:",error)
+    res.status(500).send("Error fetching weather")
+  }
+})
+
 //login
 app.post('/login', async(req,res)=>{
   const {username, password}=req.body;

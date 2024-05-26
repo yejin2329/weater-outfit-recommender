@@ -175,6 +175,25 @@ app.post('/api/users/preferences', async(req,res)=>{
   }
   
 })
+
+app.post('/api/users/update-location', async(req,res)=>{
+  const{userId, latitude, longitude}=req.body;
+  try{
+    const updatedUser=await User.findByIdAndUpdate(userId,{
+      'defaultLocation.latitude':latitude,
+      'defaultLocation.longitude':longitude
+    }, {new:true});
+    if(updatedUser){
+      res.json({message:"Location updated successfully", updatedUser})
+    }else{
+      res.status(404).send("User not found")
+    }
+  }catch(error){
+    console.error("Error updating location:", error);
+    res.status(500).send("Error updating location");
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

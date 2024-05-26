@@ -44,12 +44,17 @@ function ClothingPreferences() {
                 preferences:preferences,
                 sensitivity: sensitivity })
         });
-        const data = await response.json();
-        if(response.ok){
-            console.log('Preferences updated:',data);
-        }else{
-            console.error('Failed to update preferences:',data.message)
+        try {
+            const data = await response.json();
+            if (response.ok) {
+                console.log('Preferences updated:', data);
+            } else {
+                console.error('Failed to update preferences:', data.message);
+            }
+        } catch (error) {
+            console.error('Error parsing response:', error);
         }
+        
     };
 
     return (

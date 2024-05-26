@@ -30,7 +30,11 @@ const userSchema=new mongoose.Schema({
         coldSensitive:  Boolean,
         heatSensitive: Boolean,
         windSensitive: Boolean 
-    }
+    },
+    defaultLocation: {
+        latitude: Number,
+        longitude: Number
+      }
 })
 
 const User=mongoose.model('User', userSchema);

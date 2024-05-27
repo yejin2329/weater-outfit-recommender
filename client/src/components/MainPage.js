@@ -5,7 +5,10 @@ import {useAuth} from '../contexts/AuthContext';
 
 function MainPage(){
     const [location, setLocation]=useState(null);
+    
     const [weather, setWeather]=useState(null);
+    const [loading, setLoading]=useState(false);
+    const [error, setError]=useState(null);
 
     const{user, logout}=useAuth();
     console.log('User in MainPage:', user);

@@ -14,36 +14,25 @@ function MainPage(){
     console.log('User in MainPage:', user);
 
     useEffect(()=>{
-        //function to generate random number
-        function getRandomNumber(min,max){
-            return Math.random()*(max-min)+min;
-        }
         //function to create new snowflake element
-        function createSnowflake(){
-            const snowflake=document.createElement('div')
-            snowflake.className='snowflake';
-
-            const size=getRandomNumber(10,15)+'px'
-            snowflake.style.width=size;
-            snowflake.style.height=size;
-
-            const top=getRandomNumber(0,100)+'%'
-            const left=getRandomNumber(0,100)+'%'
-            snowflake.style.top=top
-            snowflake.style.left=left
-            
-            document.getElementById('snowflakes-container').appendChild(snowflake);
-        }
-
-        //function to create multiple snowflakes
-        function createSnowflakes(count){
-            for(let i=0; i<count; i++){
-                createSnowflake();
+        function createSnowflakes(){
+            const snowflakesContainer=document.getElementById('snowflakes-container')
+            snowflakesContainer.innerHTML=''; //clear previous snowflakes
+            for(let i=0; i<50; i++){
+                const snowflake=document.createElement('div');
+                snowflake.className='snowflake';
+                const size=Math.random()*(15-10)+10+'px';
+                snowflake.style.width=size;
+                snowflake.style.height=size;
+                const position=Math.random()*100+'%';
+                snowflake.style.top=position
+                snowflake.style.left=position
+                snowflakesContainer.appendChild(snowflake)
             }
         }
-       
-        //create 50 snowflakes
-        createSnowflakes(40);
+
+        createSnowflakes();
+
         
         navigator.geolocation.getCurrentPosition(
             (position)=>{

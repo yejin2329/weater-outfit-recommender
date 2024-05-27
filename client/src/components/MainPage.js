@@ -33,19 +33,38 @@ function MainPage(){
 
         createSnowflakes();
 
-        
         navigator.geolocation.getCurrentPosition(
             (position)=>{
                 setLocation({
                     latitude:position.coords.latitude,
                     longitude:position.coords.longitude
                 })
+                fetchWeather(position.coords.latitude, position.coords.longitude);
             },
             ()=>{
                 alert('Location access denied. Unable to fetch weather data')
             }
         )
-    },[])
+        
+        //fetch weather data
+        const fetchWeather=async(lat,lon)=>{
+            setLoading(true)
+            setError(null)
+            try{
+                const response=await fetch(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`);
+                const data=await response.json();
+                if(response.ok){
+                    setWeather(data);
+                }else{
+                    throw new Error(data.message || 'Failed to fetch weather data')
+                }
+            }catch(error){
+                setError('Weather loading failed: '+error.message);
+            }finally{
+                setLoading(false);
+            }
+        }
+    },[]);
 
     return(
         <div className="page-container">
@@ -66,7 +85,18 @@ function MainPage(){
                 )}
              
             </div>
+            
+            {weather&&(
+                <div className="weather-info">
+                    <h2>Current Weather</h2>
+                    <p>Temperature: {weather.temperature}</p>
+                    <p>Description: {weather.description}</p>
+                </div>
+            )}
 
+            {loading&&<p>Loading weather...</p>}
+            {error&&<p>Error:{error}</p>}
+            
             <div className="scene">
             <div className="snowflakes" id="snowflakes-container"></div>
                 <div className="person">

@@ -1,6 +1,7 @@
 // Settings.js
 import React, {useState} from 'react';
 import ClothingPreferences from './ClothingPreferences';
+import {Link} from 'react-router-dom';
 
 function Settings() {
     const[selectedCity, setSelectedCity]=useState('');
@@ -30,7 +31,7 @@ function Settings() {
             <h1>Settings</h1>
             <ClothingPreferences />
             <div>
-                <label htmlFor="city-select">Choos your city: </label>
+                <label htmlFor="city-select">Choose your city: </label>
                 <select id="city-select" value={selectedCity} onChange={handleLocationChange}>
                     <option value="">Select a city</option>
                     {canadaCities.map(city=>(
@@ -39,6 +40,7 @@ function Settings() {
                 </select>
             </div>
             </div>
+            <p>Back to <Link to="/">Main Page</Link></p>
         </div>
     );
 }

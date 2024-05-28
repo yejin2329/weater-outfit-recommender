@@ -87,7 +87,7 @@ function ClothingPreferences() {
                 <button type="submit">Update Preferences</button>
             </form>
             </div>
-            <p>Back to <Link to="/">Main Page</Link></p>
+           
         </div>
     );
 }

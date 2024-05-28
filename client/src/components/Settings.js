@@ -11,7 +11,10 @@ function Settings() {
         { name: "Montreal", lat: 45.501690, lon: -73.567253 },
         { name: "Calgary", lat: 51.044734, lon: -114.071883 },
         { name: "Ottawa", lat: 45.421530, lon: -75.697193 },
-        
+        { name: "Edmonton", lat: 53.546124, lon: -113.493823 },
+        { name: "Quebec City", lat: 46.813878, lon: -71.207981 },
+        { name: "Winnipeg", lat: 49.895136, lon: -97.138374 },
+        { name: "Halifax", lat: 44.648764, lon: -63.575239 },
       ];
 
     const handleLocationChange=(event)=>{

@@ -218,8 +218,10 @@ app.post('/api/users/update-location', async(req,res)=>{
       'defaultLocation.latitude':latitude,
       'defaultLocation.longitude':longitude
     }, {new:true});
+    console.log("User after update:",updatedUser);
+
     if(updatedUser){
-      console.log('Updated user location:', updatedUser)
+      
       res.json({message:"Location updated successfully", updatedUser})
     }else{
       console.log('No user found with the provided ID:', userId)

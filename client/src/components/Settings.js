@@ -2,8 +2,11 @@
 import React, {useState} from 'react';
 import ClothingPreferences from './ClothingPreferences';
 import {Link} from 'react-router-dom';
+import {useAuth} from '../contexts/AuthContext';
 
 function Settings() {
+    const {user}=useAuth();
+
     const[selectedCity, setSelectedCity]=useState('');
     const canadaCities = [
         { name: "Toronto", lat: 43.651070, lon: -79.347015 },

@@ -34,7 +34,29 @@ function Settings() {
     }    
 
     const updateLocation=async(city)=>{
+        //check if city and user data available
+        if(!city || !user) return;
+    
         console.log("Updating location to:", city)
+        try{
+            const response=await fetch('http://localhost:5000/api/users/update-location', {
+                method: 'POST',
+                headers:{'Content-type':'application/json'},
+                body:JSON.stringify({
+                    userId:user.id,
+                    latitude:city.lat,
+                    longitude:city.lon
+                })
+            })
+            const data=await response.json();
+            if(response.ok){
+                console.log('Location updated successfully:',data);
+            }else{
+                throw new Error(data.meessage||'Falied to update location');
+            }
+        }catch(error){
+            console.error('Error updating location:', error.message);
+        }
     }
 
   

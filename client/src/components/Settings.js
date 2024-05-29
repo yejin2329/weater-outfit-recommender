@@ -41,19 +41,22 @@ function Settings() {
         try{
             const response=await fetch('http://localhost:5000/api/users/update-location', {
                 method: 'POST',
-                headers:{'Content-type':'application/json'},
+                headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({
                     userId:user.id,
                     latitude:city.lat,
                     longitude:city.lon
                 })
             })
-            const data=await response.json();
-            if(response.ok){
-                console.log('Location updated successfully:',data);
-            }else{
-                throw new Error(data.meessage||'Falied to update location');
+          
+            if(!response.ok){
+                const errorText = await response.text(); 
+                throw new Error(errorText || 'Failed to update location');
             }
+
+            const data=await response.json();
+            console.log('Location updated successfully:', data);
+            
         }catch(error){
             console.error('Error updating location:', error.message);
         }

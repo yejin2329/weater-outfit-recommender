@@ -15,6 +15,13 @@ function Settings() {
         { name: "Quebec City", lat: 46.813878, lon: -71.207981 },
         { name: "Winnipeg", lat: 49.895136, lon: -97.138374 },
         { name: "Halifax", lat: 44.648764, lon: -63.575239 },
+        { name: "Victoria", lat: 48.428421, lon: -123.365644 },
+        { name: "Saskatoon", lat: 52.157935, lon: -106.670906 },
+        { name: "Regina", lat: 50.445211, lon: -104.618894 },
+        { name: "St. John's", lat: 47.561510, lon: -52.712577 },
+        { name: "Kelowna", lat: 49.888019, lon: -119.496011 },
+        { name: "Barrie", lat: 44.389356, lon: -79.690332 },
+
       ];
 
     const handleLocationChange=(event)=>{

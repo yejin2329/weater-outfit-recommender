@@ -209,14 +209,20 @@ app.post('/api/users/preferences', async(req,res)=>{
 
 app.post('/api/users/update-location', async(req,res)=>{
   const{userId, latitude, longitude}=req.body;
+
+  //debug statement
+  console.log('Received location update request:', {userId, latitude, longitude})
+
   try{
     const updatedUser=await User.findByIdAndUpdate(userId,{
       'defaultLocation.latitude':latitude,
       'defaultLocation.longitude':longitude
     }, {new:true});
     if(updatedUser){
+      console.log('Updated user location:', updatedUser)
       res.json({message:"Location updated successfully", updatedUser})
     }else{
+      console.log('No user found with the provided ID:', userId)
       res.status(404).send("User not found")
     }
   }catch(error){

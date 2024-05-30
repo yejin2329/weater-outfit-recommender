@@ -26,7 +26,9 @@ function Settings() {
         { name: "Barrie", lat: 44.389356, lon: -79.690332 },
         { name: "Sherbrooke", lat: 45.404171, lon: -71.892911 },
         { name: "Guelph", lat: 43.544805, lon: -80.248167 },
-    
+        { name: "Kingston", lat: 44.231172, lon: -76.485954 },
+        { name: "Sudbury", lat: 46.491961, lon: -80.991211 },
+        { name: "Thunder Bay", lat: 48.380895, lon: -89.247682 }
       ];
 
     const handleLocationChange=(event)=>{

@@ -24,7 +24,9 @@ function Settings() {
         { name: "St. John's", lat: 47.561510, lon: -52.712577 },
         { name: "Kelowna", lat: 49.888019, lon: -119.496011 },
         { name: "Barrie", lat: 44.389356, lon: -79.690332 },
-
+        { name: "Sherbrooke", lat: 45.404171, lon: -71.892911 },
+        { name: "Guelph", lat: 43.544805, lon: -80.248167 },
+    
       ];
 
     const handleLocationChange=(event)=>{
@@ -56,7 +58,7 @@ function Settings() {
 
             const data=await response.json();
             console.log('Location updated successfully:', data);
-            
+
         }catch(error){
             console.error('Error updating location:', error.message);
         }

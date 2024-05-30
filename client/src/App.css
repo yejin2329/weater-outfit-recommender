@@ -153,3 +153,7 @@ label {
   padding: 15px;
   font-family: Arial, sans-serif;
 }
+
+.setting-container h1{
+  text-align:left;
+}

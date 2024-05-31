@@ -58,7 +58,7 @@ function Settings() {
             setLoading(false);
         }
     }
-    
+
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         setSelectedCity(event.target.value);
@@ -103,6 +103,7 @@ function Settings() {
         <div>
             <div className="setting-container">
             <h1>Settings</h1>
+            {loading && <p>Loading...</p>}
             {message&&<p>{message}</p>}
             <ClothingPreferences />
             <div>

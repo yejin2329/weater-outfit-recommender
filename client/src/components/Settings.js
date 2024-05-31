@@ -41,9 +41,12 @@ function Settings() {
 
     const updateLocation=async(city)=>{
         //check if city and user data available
-        if(!city || !user) return;
-    
-        console.log("Updating location to:", city)
+        if(!city || !user){
+            setMessage('City or user data is missing.');
+            return;
+        }
+        setLoading(true);
+        
         try{
             const response=await fetch('http://localhost:5000/api/users/update-location', {
                 method: 'POST',
@@ -54,18 +57,19 @@ function Settings() {
                     longitude:city.lon
                 })
             })
-          
-            if(!response.ok){
-                const errorText = await response.text(); 
-                throw new Error(errorText || 'Failed to update location');
-            }
-
             const data=await response.json();
-            console.log('Location updated successfully:', data);
-
+            if(response.ok){
+                setMessage('Location updated successfully.')
+            }else{
+                throw new Error(data.message || 'Failed to update locataion')
+            }
         }catch(error){
-            console.error('Error updating location:', error.message);
+            console.error('Error updating location', error)
+            setMessage(error.message)
+        }finally{
+            setLoading(false);
         }
+            
     }
 
   
@@ -73,6 +77,7 @@ function Settings() {
         <div>
             <div className="setting-container">
             <h1>Settings</h1>
+            {message&&<p>{message}</p>}
             <ClothingPreferences />
             <div>
                 <label htmlFor="city-select">Choose your city: </label>

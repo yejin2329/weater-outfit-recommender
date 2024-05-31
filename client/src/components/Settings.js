@@ -1,21 +1,14 @@
 // Settings.js
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import ClothingPreferences from './ClothingPreferences';
 import {Link} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 
 function Settings() {
     const {user}=useAuth();
-    const [editMode, setEditMode]=useState(false);
-    const [preferences, setPreferences]=useState({
-        cold:'',
-        hot:'',
-        rainy:'',
-        coldSensitive:false,
-        heatSensitivie:false,
-        windSensitive:false
-    })
-    
+    const [message,setMessage]=useState('');
+    const [loading, setLoading]=useState(false);
+
     const[selectedCity, setSelectedCity]=useState('');
     const canadaCities = [
         { name: "Toronto", lat: 43.651070, lon: -79.347015 },

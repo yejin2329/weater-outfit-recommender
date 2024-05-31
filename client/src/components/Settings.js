@@ -1,11 +1,13 @@
 // Settings.js
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ClothingPreferences from './ClothingPreferences';
 import {Link} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 
 function Settings() {
     const {user}=useAuth();
+    const [preferencees, setPreferences]=useState(null);
+    const [editMode, setEditMode]=useState(false);
     const [message,setMessage]=useState('');
     const [loading, setLoading]=useState(false);
 
@@ -32,6 +34,12 @@ function Settings() {
         { name: "Sudbury", lat: 46.491961, lon: -80.991211 },
         { name: "Thunder Bay", lat: 48.380895, lon: -89.247682 }
       ];
+    
+    useEffect(()=>{
+        if(user){
+            fetchUserPreferences();
+        }
+    }, [user])
 
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)

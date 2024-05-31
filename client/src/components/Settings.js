@@ -41,6 +41,24 @@ function Settings() {
         }
     }, [user])
 
+    const fetchUserPreferences=async()=>{
+        setLoading(true);
+        try{
+            const response=await fetch(`http://localhost:5000/api/users/preferences/${user.id}`)
+            const data=await response.json();
+            if(response.ok){
+                setPreferences(data.preferences);
+                setSelectedCity(data.city)
+            }else{
+                throw new Error(data.message)
+            }
+        }catch(error){
+            setMessage('Failed to fetch preferences: '+error.message)
+        }finally{
+            setLoading(false);
+        }
+    }
+    
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         setSelectedCity(event.target.value);

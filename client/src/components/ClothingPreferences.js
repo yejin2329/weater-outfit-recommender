@@ -24,7 +24,7 @@ function ClothingPreferences() {
     
 
     const handlePreferencesChange = (e) => {
-        setPreferences({ ...preferences, [e.target.name]: e.target.value });
+        setPreferences(e.target.name, e.target.value);
     };
 
     const handleSensitivityChange = (e) => {

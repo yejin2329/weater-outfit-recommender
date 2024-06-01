@@ -66,13 +66,7 @@ function Settings() {
     }    
 
     const updateLocation=async(city)=>{
-        //check if city and user data available
-        if(!city || !user){
-            setMessage('City or user data is missing.');
-            return;
-        }
         setLoading(true);
-        
         try{
             const response=await fetch('http://localhost:5000/api/users/update-location', {
                 method: 'POST',

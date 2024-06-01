@@ -6,7 +6,7 @@ import {useAuth} from '../contexts/AuthContext';
 
 function Settings() {
     const {user}=useAuth();
-    const [preferencees, setPreferences]=useState(null);
+    const [preferences, setPreferences]=useState(null);
     const [editMode, setEditMode]=useState(false);
     const [message,setMessage]=useState('');
     const [loading, setLoading]=useState(false);
@@ -97,7 +97,9 @@ function Settings() {
             <h1>Settings</h1>
             {loading && <p>Loading...</p>}
             {message&&<p>{message}</p>}
-            <ClothingPreferences />
+            {preferences && !editMode && (
+                <ClothingPreferences readOnly={true} preferences={preferences} />
+            )}
             <div>
                 <label htmlFor="city-select">Choose your city: </label>
                 <select id="city-select" value={selectedCity} onChange={handleLocationChange}>

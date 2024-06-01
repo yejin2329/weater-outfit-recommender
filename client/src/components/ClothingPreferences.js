@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {useAuth} from '../contexts/AuthContext';
+import React from 'react';
+
 
 
 function ClothingPreferences({preferences,sensitivity,updatePreferences, updateSensitivity, handleSubmit, readOnly}) {
@@ -9,7 +9,7 @@ function ClothingPreferences({preferences,sensitivity,updatePreferences, updateS
         rainy: ["Raincoat", "Waterproof Jacket", "Poncho", "Umbrella", "Waterproof Pants", "Rubber Boots", "Water-Resistant Backpack", "Waterproof Hat", "Quick-Dry Clothing", "Other"]
     };
 
-    const {user}=useAuth();
+
 
     
 

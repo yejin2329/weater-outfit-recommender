@@ -77,16 +77,14 @@ function Settings() {
                     longitude:city.lon
                 })
             })
-            const data=await response.json();
-            if(response.ok){
-                setMessage('Location updated successfully.')
-            }else{
-                throw new Error(data.message || 'Failed to update locataion')
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText || 'Failed to update location');
             }
-        }catch(error){
-            console.error('Error updating location', error)
-            setMessage(error.message)
-        }finally{
+            setMessage('Location updated successfully.');
+        } catch (error) {
+            setMessage('Error updating location: ' + error.message);
+        } finally {
             setLoading(false);
         }
             

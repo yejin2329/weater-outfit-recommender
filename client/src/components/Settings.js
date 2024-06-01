@@ -100,6 +100,7 @@ function Settings() {
             {preferences && !editMode && (
                 <ClothingPreferences readOnly={true} preferences={preferences} />
             )}
+            <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Save Changes' : 'Modify Preferences'}</button>
             <div>
                 <label htmlFor="city-select">Choose your city: </label>
                 <select id="city-select" value={selectedCity} onChange={handleLocationChange}>

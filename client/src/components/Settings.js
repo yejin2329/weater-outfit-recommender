@@ -1,5 +1,5 @@
 // Settings.js
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import ClothingPreferences from './ClothingPreferences';
 import {Link} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
@@ -41,7 +41,7 @@ function Settings() {
         }
     }, [user])
 
-    const fetchUserPreferences=async()=>{
+    const fetchUserPreferences=useCallback(async()=>{
         setLoading(true);
         try{
             const response=await fetch(`http://localhost:5000/api/users/preferences/${user.id}`)
@@ -57,7 +57,7 @@ function Settings() {
         }finally{
             setLoading(false);
         }
-    }
+    },[user.id]);
 
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)

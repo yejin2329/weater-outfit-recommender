@@ -35,11 +35,6 @@ function Settings() {
         { name: "Thunder Bay", lat: 48.380895, lon: -89.247682 }
       ];
     
-    useEffect(()=>{
-        if(user){
-            fetchUserPreferences();
-        }
-    }, [user])
 
     const fetchUserPreferences=useCallback(async()=>{
         setLoading(true);
@@ -59,6 +54,12 @@ function Settings() {
         }
     },[user.id]);
 
+    useEffect(()=>{
+        if(user){
+            fetchUserPreferences();
+        }
+    }, [user, fetchUserPreferences])
+    
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         setSelectedCity(event.target.value);

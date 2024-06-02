@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-
 function ClothingPreferences({preferences,sensitivity,updatePreferences, updateSensitivity, handleSubmit, readOnly}) {
     const clothingOptions = {
         cold: ["Heavy Coat", "Thermal Jacket", "Sweater", "Fleece Jacket", "Down Jacket", "Wool Coat", "Long Underwear", "Scarves, Hats, and Gloves", "Snow Boots", "Other"],
@@ -9,9 +8,6 @@ function ClothingPreferences({preferences,sensitivity,updatePreferences, updateS
         rainy: ["Raincoat", "Waterproof Jacket", "Poncho", "Umbrella", "Waterproof Pants", "Rubber Boots", "Water-Resistant Backpack", "Waterproof Hat", "Quick-Dry Clothing", "Other"]
     };
 
-
-
-    
 
     return (
         <div>

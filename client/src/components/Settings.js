@@ -37,6 +37,8 @@ function Settings() {
     
 
     const fetchUserPreferences=useCallback(async()=>{
+        if(!user) return;
+
         setLoading(true);
         try{
             const response=await fetch(`http://localhost:5000/api/users/preferences/${user.id}`)
@@ -52,14 +54,14 @@ function Settings() {
         }finally{
             setLoading(false);
         }
-    },[user.id]);
+    },[user]);
 
     useEffect(()=>{
         if(user){
             fetchUserPreferences();
         }
     }, [user, fetchUserPreferences])
-    
+
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         setSelectedCity(event.target.value);
@@ -98,10 +100,12 @@ function Settings() {
             <h1>Settings</h1>
             {loading && <p>Loading...</p>}
             {message&&<p>{message}</p>}
-            {preferences && !editMode && (
+            {user&&preferences && !editMode && (
                 <ClothingPreferences readOnly={true} preferences={preferences} />
             )}
+            {user&&(
             <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Save Changes' : 'Modify Preferences'}</button>
+            )}
             <div>
                 <label htmlFor="city-select">Choose your city: </label>
                 <select id="city-select" value={selectedCity} onChange={handleLocationChange}>

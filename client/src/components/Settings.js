@@ -45,15 +45,15 @@ function Settings() {
         setLoading(true);
         try{
             const response=await fetch(`http://localhost:5000/api/users/preferences/${user.id}`)
-            const data=await response.json();
-            if(response.ok){
-                setPreferences(data.preferences);
-                setSelectedCity(data.city)
-            }else{
-                throw new Error(data.message)
+            if(!response.ok){
+                const errorText=await response.text();
+                throw new Error('Failed to fetch preferences: '+errorText)
             }
+            const data=await response.json();
+            setPreferences(data.preferences);
+            setSelectedCity(data.city)
         }catch(error){
-            setMessage('Failed to fetch preferences: '+error.message)
+            setMessage(error.message)
         }finally{
             setLoading(false);
         }

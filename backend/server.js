@@ -227,6 +227,32 @@ app.post('/api/users/preferences', async(req,res)=>{
   
 })
 
+app.post('/api/users/update-city', async (req, res) =>{
+  const{userId, city}=req.body;
+
+  console.log('REceived city update request for:', {userId, city})
+
+  try{
+    const updatedUser=await User.findByIdAndUpdate(userId, {
+      $set:{
+        defaultCity:city
+      }
+    },{new:true,runValidators:true });
+
+    if(updatedUser){
+        console.log("User after update:", updatedUser)
+        res.json({message:"City updated successfully",updatedUser})
+      }else{
+        console.log('No user found with the provided ID:', userId)
+        res.status(404).send("User not found");
+      }
+    }catch(error){
+      console.error("Error updating city:", error);
+      res.status(500).send("Error updating city");
+    }
+  
+})
+/*
 app.post('/api/users/update-location', async(req,res)=>{
   const{userId, latitude, longitude}=req.body;
 
@@ -254,6 +280,7 @@ app.post('/api/users/update-location', async(req,res)=>{
     res.status(500).send("Error updating location");
   }
 })
+*/
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

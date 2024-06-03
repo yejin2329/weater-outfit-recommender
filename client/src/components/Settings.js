@@ -71,7 +71,7 @@ function Settings() {
     const updateLocation=async(city)=>{
         setLoading(true);
         try{
-            const response=await fetch('http://localhost:5000/api/users/update-location', {
+            const response=await fetch('http://localhost:5000/api/users/update-city', {
                 method: 'POST',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({

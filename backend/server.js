@@ -235,9 +235,11 @@ app.post('/api/users/update-location', async(req,res)=>{
 
   try{
     const updatedUser=await User.findByIdAndUpdate(userId,{
+      $set:{
       'defaultLocation.latitude':latitude,
       'defaultLocation.longitude':longitude
-    }, {new:true});
+      }
+    }, {new:true, runValidators:true});
     console.log("User after update:",updatedUser);
 
     if(updatedUser){

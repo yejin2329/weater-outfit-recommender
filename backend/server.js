@@ -78,13 +78,16 @@ app.get('/weather', async(req,res)=>{
 app.get('/api/users/preferences/:userId', async (req, res) =>{
   const { userId } = req.params;
     try {
-      const user=await User.findById(userId).exec();
+      const user=await User.findById(userId);
       if(!user){
         console.log('User not found:', userId)
         return res.status(404).send('User not found')
       }
-      console.log('User not found:', user)
-      res.json({preferences:user.preferences});
+
+      res.json({
+        preferences:user.preferences || {},
+      city:user.city || "Default city or null"
+    });
 }catch(error){
   console.error('Failed to fetch preferences:',error);
   res.status(500).send('Server error');

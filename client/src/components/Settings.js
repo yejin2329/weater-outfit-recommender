@@ -48,7 +48,7 @@ function Settings() {
             }
             const data=await response.json();
             setPreferences(data.preferences);
-            setSelectedCity(data.city)
+            setSelectedCity(data.city||'Default city or some fallback')
         }catch(error){
             setMessage(error.message)
         }finally{

@@ -233,12 +233,14 @@ app.post('/api/users/update-city', async (req, res) =>{
   console.log('REceived city update request for:', {userId, city})
 
   try{
-    const updatedUser=await User.findByIdAndUpdate(userId, {
-      $set:{
+    const updatedUser=await User.findByIdAndUpdate(
+     mongoose.Types.objectId(userId),
+     { $set:{
         defaultCity:city
       }
     },{new:true,runValidators:true });
-
+    console.log("User after update:", updatedUser)
+    
     if(updatedUser){
         console.log("User after update:", updatedUser)
         res.json({message:"City updated successfully",updatedUser})

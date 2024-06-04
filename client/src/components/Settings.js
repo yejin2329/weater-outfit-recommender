@@ -85,6 +85,7 @@ function Settings() {
             }
             const data=await response.json();
             setMessage(data.message);
+            setSelectedCity(city.name);
         } catch (error) {
             setMessage('Error updating location: ' + error.message);
         } finally {

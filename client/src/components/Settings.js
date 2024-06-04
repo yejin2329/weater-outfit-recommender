@@ -76,15 +76,15 @@ function Settings() {
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({
                     userId:user.id,
-                    latitude:city.lat,
-                    longitude:city.lon
+                    city:city.name
                 })
             })
             if (!response.ok) {
                 const errorText = await response.text();
                 throw new Error(errorText || 'Failed to update location');
             }
-            setMessage('Location updated successfully.');
+            const data=await response.json();
+            setMessage(data.message);
         } catch (error) {
             setMessage('Error updating location: ' + error.message);
         } finally {

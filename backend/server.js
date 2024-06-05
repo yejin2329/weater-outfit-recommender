@@ -140,13 +140,12 @@ app.post('/register', async(req,res)=>{
   //new user instance and save in database
   const newUser=new User({
     username:username,
-    userId:uuidv4(), //generate UUID for users
     password:hashedPassword
   })
   //save the new user to the database
   await newUser.save();
   
-  res.status(200).json({message:"Registration successful!",userId: newUser.userId})
+  res.status(200).json({message:"Registration successful!",userId: newUser.id})
 }catch(error){
   if(error.code===11000){
     //handle duplicate key

@@ -51,7 +51,7 @@ function MainPage(){
             setLoading(true)
             setError(null)
             try{
-                const response=await fetch(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`);
+                const response=await fetch(`http://localhost:5000/weather?userId=${user._id}`);
                 const data=await response.json();
                 if(response.ok){
                     setWeather(data);
@@ -96,7 +96,7 @@ function MainPage(){
 
             {loading&&<p>Loading weather...</p>}
             {error&&<p>Error:{error}</p>}
-            
+
             <div className="scene">
             <div className="snowflakes" id="snowflakes-container"></div>
                 <div className="person">

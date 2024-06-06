@@ -14,6 +14,56 @@ function MainPage(){
     const{user, logout}=useAuth();
     console.log('User in MainPage:', user);
 
+     //fetch weather data
+     const fetchWeather=async(lat,lon)=>{
+        setLoading(true)
+        setError(null)
+
+        const url=lat&lon
+             ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
+             : `http://localhost:5000/weather?userId=${user._id}`;
+    
+        try{
+            const response=await fetch(url);
+            const data=await response.json();
+            if(response.ok){
+                setWeather(data);
+            }else{
+                throw new Error(data.message || 'Failed to fetch weather data')
+            }
+        }catch(error){
+            setError('Weather loading failed: '+error.message);
+        }finally{
+            setLoading(false);
+        }
+    }
+
+    useEffect(()=>{
+        navigator.geolocation.getCurrentPosition(
+            (position)=>{
+                setLocation({
+                    latitude:position.coords.latitude,
+                    longitude:position.coords.longitude
+                })
+                fetchWeather(position.coords.latitude, position.coords.longitude)
+            },
+            (error)=>{
+                setError('Location access denied. Unable to fetch weather data: '+error.message)
+                console.error('Geolocation Error:', error)
+            }
+        )
+        
+    
+       
+    },[]);
+
+    useEffect(()=>{
+        if(user){
+            fetchWeather(location?.latitude, location?.longitude);
+        }
+    },[user,customLocation])
+
+    
     useEffect(()=>{
         //function to create new snowflake element
         function createSnowflakes(){
@@ -33,54 +83,11 @@ function MainPage(){
         }
 
         createSnowflakes();
+    },[])
 
-        navigator.geolocation.getCurrentPosition(
-            (position)=>{
-                setLocation({
-                    latitude:position.coords.latitude,
-                    longitude:position.coords.longitude
-                })
-                fetchWeather(position.coords.latitude, position.coords.longitude);
-            },
-            ()=>{
-                alert('Location access denied. Unable to fetch weather data')
-            }
-        )
-        
     
-       
-    },[]);
 
-        //fetch weather data
-        const fetchWeather=async(lat,lon)=>{
-            setLoading(true)
-            setError(null)
-
-            const url=lat&lon
-                 ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
-                 : `http://localhost:5000/weather?userId=${user._id}`;
-        
-            try{
-                const response=await fetch(url);
-                const data=await response.json();
-                if(response.ok){
-                    setWeather(data);
-                }else{
-                    throw new Error(data.message || 'Failed to fetch weather data')
-                }
-            }catch(error){
-                setError('Weather loading failed: '+error.message);
-            }finally{
-                setLoading(false);
-            }
-        }
-
-        useEffect(()=>{
-            if(user){
-                fetchWeather(location?.latitude, location?.longitude);
-            }
-        },[user,customLocation])
-
+    
     return(
         <div className="page-container">
             <h1>Welcome to the Weather-Based Outfit Recommender</h1>

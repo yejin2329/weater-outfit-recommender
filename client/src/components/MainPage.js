@@ -52,12 +52,10 @@ function MainPage(){
     },[]);
 
         //fetch weather data
-        const fetchWeather=async()=>{
+        const fetchWeather=async(lat,lon)=>{
             setLoading(true)
             setError(null)
 
-            const lat=customLocation ? customLocation.lat : null;
-            const lon=customLocation ? customLocation.lon: null;
             const url=lat&lon
                  ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
                  : `http://localhost:5000/weather?userId=${user._id}`;
@@ -79,10 +77,10 @@ function MainPage(){
 
         useEffect(()=>{
             if(user){
-                fetchWeather();
+                fetchWeather(location?.latitude, location?.longitude);
             }
         },[user,customLocation])
-        
+
     return(
         <div className="page-container">
             <h1>Welcome to the Weather-Based Outfit Recommender</h1>

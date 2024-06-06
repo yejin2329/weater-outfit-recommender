@@ -59,9 +59,9 @@ async function fetchWeather(lat,lon){
 
 //fetch weather data
 app.get('/weather', async(req,res)=>{
-  const{id}=req.query;
+  const{userId}=req.query;
   try{
-    const user=await User.findById(id)
+    const user=await User.findById(userId)
     if(user&&user.defaultLocation){
       const weatherData=await fetchWeather(user.defaultLocation.latitude, user.defaultLocation.longitude)
       res.json(weatherData);

@@ -77,6 +77,12 @@ function MainPage(){
             }
         }
 
+        useEffect(()=>{
+            if(user){
+                fetchWeather();
+            }
+        },[user,customLocation])
+        
     return(
         <div className="page-container">
             <h1>Welcome to the Weather-Based Outfit Recommender</h1>

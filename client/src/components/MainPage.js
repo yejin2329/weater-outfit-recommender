@@ -4,6 +4,7 @@ import {useAuth} from '../contexts/AuthContext';
 
 
 function MainPage(){
+    const[customLocation, setCustomLocation]=useState(null);
     const [location, setLocation]=useState(null);
     
     const [weather, setWeather]=useState(null);
@@ -46,12 +47,23 @@ function MainPage(){
             }
         )
         
+    
+       
+    },[]);
+
         //fetch weather data
-        const fetchWeather=async(lat,lon)=>{
+        const fetchWeather=async()=>{
             setLoading(true)
             setError(null)
+
+            const lat=customLocation ? customLocation.lat : null;
+            const lon=customLocation ? customLocation.lon: null;
+            const url=lat&lon
+                 ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
+                 : `http://localhost:5000/weather?userId=${user._id}`;
+        
             try{
-                const response=await fetch(`http://localhost:5000/weather?userId=${user._id}`);
+                const response=await fetch(url);
                 const data=await response.json();
                 if(response.ok){
                     setWeather(data);
@@ -64,7 +76,6 @@ function MainPage(){
                 setLoading(false);
             }
         }
-    },[]);
 
     return(
         <div className="page-container">

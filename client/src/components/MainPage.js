@@ -11,7 +11,7 @@ function MainPage(){
     const [loading, setLoading]=useState(false);
     const [error, setError]=useState(null);
     const{user, logout}=useAuth();
-    
+
     console.log('User in MainPage:', user);
 
      //fetch weather data
@@ -37,7 +37,7 @@ function MainPage(){
             setLoading(false);
         }
     }
-
+    //effect for initial fetch
     useEffect(()=>{
         navigator.geolocation.getCurrentPosition(
             (position)=>{

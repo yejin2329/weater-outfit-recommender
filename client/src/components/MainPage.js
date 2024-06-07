@@ -37,6 +37,13 @@ function MainPage(){
             setLoading(false);
         }
     }
+    
+    useEffect(()=>{
+        if(user){
+            fetchWeather(location?.latitude, location?.longitude);
+        }
+    },[user,customLocation])
+
     //effect for initial fetch
     useEffect(()=>{
         navigator.geolocation.getCurrentPosition(
@@ -57,12 +64,7 @@ function MainPage(){
        
     },[]);
 
-    useEffect(()=>{
-        if(user){
-            fetchWeather(location?.latitude, location?.longitude);
-        }
-    },[user,customLocation])
-
+ 
     
     useEffect(()=>{
         //function to create new snowflake element

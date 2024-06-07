@@ -37,7 +37,8 @@ function MainPage(){
             setLoading(false);
         }
     }
-    
+
+    //effect for fetching weather
     useEffect(()=>{
         if(user){
             fetchWeather(location?.latitude, location?.longitude);

@@ -40,7 +40,7 @@ function MainPage(){
 
     //effect for fetching weather
     useEffect(()=>{
-        if(user){
+        if(user&&(location || customLocation)){
             fetchWeather(location?.latitude, location?.longitude);
         }
     },[user,customLocation])

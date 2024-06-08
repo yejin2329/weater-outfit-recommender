@@ -44,9 +44,9 @@ function Login(){
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
-                    <label htmlFor="userId">User ID:</label>
+                    <label htmlFor="username">Username:</label>
                     <input type= "text"
-                            id="userId"
+                            id="username"
                             value={username}
                             onChange={(e)=>setUsername(e.target.value)}
                             required

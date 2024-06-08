@@ -227,12 +227,12 @@ app.post('/api/users/preferences', async(req,res)=>{
 })
 
 app.post('/api/users/update-city', async (req, res) =>{
-  const{userId, city}=req.body;
+  const{_id, city}=req.body;
 
-  console.log('REceived city update request for:', {userId, city})
+  console.log('REceived city update request for:', {_id, city})
 
   try{
-    const updatedUser=await User.findByIdAndUpdate(userId,
+    const updatedUser=await User.findByIdAndUpdate(_id,
      { $set:{
         defaultCity:city
       }
@@ -243,7 +243,7 @@ app.post('/api/users/update-city', async (req, res) =>{
         console.log("User after update:", updatedUser)
         res.json({message:"City updated successfully",updatedUser})
       }else{
-        console.log('No user found with the provided ID:', userId)
+        console.log('No user found with the provided ID:', _id)
         res.status(404).send("User not found");
       }
     }catch(error){

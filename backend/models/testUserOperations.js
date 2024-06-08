@@ -19,7 +19,14 @@ async function createUser() {
         const newUser = new User({
             username: 'testUser3',
             email:'testuser3@example.com',
-            password: hashedPassword
+            password: hashedPassword,
+            clothingPreferences:{},
+            weatherSensitivity:{
+                coldSensitive:false,
+                heatSensitive:false,
+                windSensitive:false
+            },
+            defaultLocation:null
         });
 
         await newUser.save();

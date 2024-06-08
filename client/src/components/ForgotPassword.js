@@ -7,7 +7,6 @@ function ForgotPassword() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage('Processing...');
 
         try {
             const response = await fetch('http://localhost:5000/forgot-password', {

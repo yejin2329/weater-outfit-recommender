@@ -75,12 +75,12 @@ app.get('/weather', async(req,res)=>{
 })
 
 //fetch user preferences
-app.get('/api/users/preferences/:userId', async (req, res) =>{
-  const { userId } = req.params;
+app.get('/api/users/preferences/:_id', async (req, res) =>{
+  const { _id } = req.params;
     try {
-      const user=await User.findById(userId);
+      const user=await User.findById(_id);
       if(!user){
-        console.log('User not found:', userId)
+        console.log('User not found:', _id)
         return res.status(404).send('User not found')
       }
 

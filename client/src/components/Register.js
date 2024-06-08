@@ -79,9 +79,9 @@ function Register(){
                 </div>
 
                 <div>
-                    <label htmlFor="userId">User ID:</label>
+                    <label htmlFor="username">Username:</label>
                     <input type="text"
-                            id="userId"
+                            id="username"
                             value={username}
                             onChange={(e)=>setUserName(e.target.value)}
                             required

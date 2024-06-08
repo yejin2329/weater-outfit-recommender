@@ -145,7 +145,7 @@ app.post('/register', async(req,res)=>{
   //save the new user to the database
   await newUser.save();
   
-  res.status(200).json({message:"Registration successful!",userId: newUser.id})
+  res.status(200).json({message:"Registration successful!",_id: newUser._id})
 }catch(error){
   if(error.code===11000){
     //handle duplicate key
@@ -199,7 +199,7 @@ app.post('/forgot-password', async(req,res)=>{
 })
 
 app.post('/api/users/preferences', async(req,res)=>{
-  const {userId, preferences, sensitivity}=req.body;
+  const {_id, preferences, sensitivity}=req.body;
   //debug
   console.log('Received update request for user ID:', _id);
   try{

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('./User'); 
 const bcrypt=require('bcrypt');
-const {v4:uuidv4}=require('uuid');
+
 require('dotenv').config({ path: '../.env' });
 
 
@@ -19,7 +19,6 @@ async function createUser() {
         const newUser = new User({
             username: 'testUser3',
             email:'testuser3@example.com',
-            userId:uuidv4(),
             password: hashedPassword
         });
 

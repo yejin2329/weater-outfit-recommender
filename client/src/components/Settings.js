@@ -73,6 +73,11 @@ function Settings() {
     }    
 
     const updateLocation=async(city)=>{
+        if(!user){
+            setMessage("User is not logged in/User data is not available.")
+            return;
+        }
+        
         setLoading(true);
         try{
             const response=await fetch('http://localhost:5000/api/users/update-city', {

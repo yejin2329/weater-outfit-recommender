@@ -232,8 +232,7 @@ app.post('/api/users/update-city', async (req, res) =>{
   console.log('REceived city update request for:', {userId, city})
 
   try{
-    const updatedUser=await User.findByIdAndUpdate(
-     mongoose.Types.ObjectId(userId),
+    const updatedUser=await User.findByIdAndUpdate(userId,
      { $set:{
         defaultCity:city
       }

@@ -105,8 +105,8 @@ function Settings() {
             <h1>Settings</h1>
             {loading && <p>Loading...</p>}
             {message&&<p>{message}</p>}
-            {user&&preferences && !editMode && (
-                <ClothingPreferences readOnly={true} preferences={preferences} />
+            {user && (
+                <ClothingPreferences readOnly={!editMode} preferences={preferences} />
             )}
             {user&&(
             <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Save Changes' : 'Modify Preferences'}</button>

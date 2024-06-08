@@ -6,7 +6,11 @@ import {useAuth} from '../contexts/AuthContext';
 
 function Settings() {
     const {user}=useAuth();
-    const [preferences, setPreferences]=useState(null);
+    const [preferences, setPreferences]=useState({
+        cold:'',
+        hot:'',
+        rainy:''
+    });
     const [editMode, setEditMode]=useState(false);
     const [message,setMessage]=useState('');
     const [loading, setLoading]=useState(false);

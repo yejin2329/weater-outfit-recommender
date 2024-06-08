@@ -47,8 +47,8 @@ function Settings() {
                 throw new Error('Failed to fetch preferences: '+errorText)
             }
             const data=await response.json();
-            setPreferences(data.preferences);
-            setSelectedCity(data.city||'Default city or some fallback')
+            setPreferences(data.preferences || {cold:'', hot:'',rainy:''});
+            setSelectedCity(data.city||'Select a city')
         }catch(error){
             setMessage(error.message)
         }finally{

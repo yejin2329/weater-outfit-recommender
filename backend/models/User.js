@@ -17,9 +17,9 @@ const userSchema=new mongoose.Schema({
         unique:true
     },
     clothingPreferences: {
-        cold:  String ,
-        hot: String ,
-        rainy: String 
+        cold:  {type:String , default:'Heavy Coat'},
+        hot: {type:String , default:'T-shirt'},
+        rainy: {type:String, default:'Raincoat'} 
     },
     weatherSensitivity: {
         coldSensitive:  Boolean,

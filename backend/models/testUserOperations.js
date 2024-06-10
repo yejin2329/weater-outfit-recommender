@@ -23,7 +23,7 @@ async function createUser() {
             clothingPreferences:{
                 cold:"Heavy Coat",
                 hot:"T-shirt",
-                rainy:"RainCoat"
+                rainy:"Raincoat"
             },
             weatherSensitivity:{
                 coldSensitive:false,

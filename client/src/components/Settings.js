@@ -22,6 +22,11 @@ function Settings() {
     const [message,setMessage]=useState('');
     const [loading, setLoading]=useState(false);
 
+    //function to handle preference changes
+    const handleUpdatePreferences=(key, value)=>{
+        setPreferences(prev=>({...prev, [key]:value}))
+    }
+
     const[selectedCity, setSelectedCity]=useState('');
     const canadaCities = [
         { name: "Toronto", lat: 43.651070, lon: -79.347015 },
@@ -121,7 +126,10 @@ function Settings() {
             {loading && <p>Loading...</p>}
             {message&&<p>{message}</p>}
             {user && (
-                <ClothingPreferences readOnly={!editMode} preferences={preferences} sensitivity={sensitivity}/>
+                <ClothingPreferences readOnly={!editMode} preferences={preferences} sensitivity={sensitivity}
+                updatePreferences={handleUpdatePreferences}
+                updateSensitivity={handleUpdateSensitivity}
+                handleSubmit={handleSubmitPreferences}/>
             )}
             {user&&(
             <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Save Changes' : 'Modify Preferences'}</button>

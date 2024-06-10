@@ -8,7 +8,9 @@ function ClothingPreferences({preferences,sensitivity,updatePreferences, updateS
         rainy: ["Raincoat", "Waterproof Jacket", "Poncho", "Umbrella", "Waterproof Pants", "Rubber Boots", "Water-Resistant Backpack", "Waterproof Hat", "Quick-Dry Clothing", "Other"]
     };
 
-
+    if(!preferences || !sensitivity){
+        return <p>Loading preferences...</p>
+    }
     return (
         <div>
             <div className="preferences-container">

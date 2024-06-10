@@ -51,6 +51,9 @@ function Settings() {
                 throw new Error('Failed to fetch preferences: '+errorText)
             }
             const data=await response.json();
+            //debug
+            console.log("Fetched preferences:", data)
+            
             setPreferences(data.preferences || {cold:'', hot:'',rainy:''});
             setSelectedCity(data.city||'Select a city')
         }catch(error){
@@ -77,7 +80,7 @@ function Settings() {
             setMessage("User is not logged in/User data is not available.")
             return;
         }
-        
+
         setLoading(true);
         try{
             const response=await fetch('http://localhost:5000/api/users/update-city', {

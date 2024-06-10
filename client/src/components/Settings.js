@@ -11,6 +11,13 @@ function Settings() {
         hot:'',
         rainy:''
     });
+    
+    const [sensitivity, setSensitivity]=useState({
+        coldSensitive:false,
+        heatSensitive:false,
+        windSensitive:false
+    })
+    
     const [editMode, setEditMode]=useState(false);
     const [message,setMessage]=useState('');
     const [loading, setLoading]=useState(false);
@@ -53,7 +60,7 @@ function Settings() {
             const data=await response.json();
             //debug
             console.log("Fetched preferences:", data)
-            
+
             setPreferences(data.preferences || {cold:'', hot:'',rainy:''});
             setSelectedCity(data.city||'Select a city')
         }catch(error){

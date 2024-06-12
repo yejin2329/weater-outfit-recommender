@@ -42,6 +42,7 @@ function Settings() {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify({
+                _id:user._id,
                 preferences:preferences,
                 sensitivity:sensitivity})
           })

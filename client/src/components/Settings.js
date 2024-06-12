@@ -127,7 +127,7 @@ function Settings() {
                 method: 'POST',
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify({
-                    userId:user._id,
+                    _id:user._id,
                     city:city.name
                 })
             })

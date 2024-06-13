@@ -90,12 +90,13 @@ function Settings() {
             if(response.ok){
                         //debug
              console.log("Fetched preferences:", data)
+             setPreferences(data.preferences || {cold:'', hot:'',rainy:''});
+             setSelectedCity(data.city||'Select a city')
             }
            
    
 
-            setPreferences(data.preferences || {cold:'', hot:'',rainy:''});
-            setSelectedCity(data.city||'Select a city')
+        
         }catch(error){
             setMessage(error.message)
         }finally{

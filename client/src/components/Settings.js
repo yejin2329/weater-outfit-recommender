@@ -37,7 +37,7 @@ function Settings() {
         e.preventDefault();
         if(!user) return;
         setLoading(true)
-        try{
+        try{ 
           const response=await fetch(`http://localhost:5000/api/users/preferences`,{
             method:'POST',
             headers:{'Content-Type': 'application/json'},
@@ -47,6 +47,8 @@ function Settings() {
                 sensitivity:sensitivity})
           })
           if(!response.ok) throw new Error('Failed to update preferences')  
+          const result=await response.json();
+          console.log("Updated preferences:", result)
           setMessage('Preferences updated successfully!')
         }catch(error){
             console.error('Failed to submit preferences:', error)

@@ -52,7 +52,7 @@ function Settings() {
           setMessage('Preferences updated successfully!')
         }catch(error){
             console.error('Failed to submit preferences:', error)
-            setMessage('Failed to update preferences: '+error.message)
+            setMessage(`Failed to update preferences: ${error.message}`)
         }finally{
             setLoading(false)
         }

@@ -97,7 +97,8 @@ function Settings() {
             }
            
         }catch(error){
-            setMessage(error.message)
+            console.error('Error fetching preferences:',error)
+            setMessage(`Failed to fetch preferences: ${error.message}`)
         }finally{
             setLoading(false);
         }

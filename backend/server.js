@@ -210,7 +210,9 @@ app.post('/api/users/preferences', async(req,res)=>{
         'clothingPreferences.cold':preferences.cold,
         'clothingPreferences.hot':preferences.hot,
         'clothingPreferences.rainy':preferences.rainy,
-        weatherSensitivity:sensitivity
+        'weatherSensitivity.coldSensitive':sensitivity.coldSensitive,
+        'weatherSensitivity.heatSensitive':sensitivity.heatSensitive,
+        'weatherSensitivity.windSensitive':sensitivity.windSensitive
       }},
       //return to updated 
       {new:true}

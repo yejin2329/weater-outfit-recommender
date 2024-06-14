@@ -207,7 +207,9 @@ app.post('/api/users/preferences', async(req,res)=>{
     const updatedUser=await User.findByIdAndUpdate(
       _id,
       {$set:{
-        clothingPreferences:preferences,
+        'clothingPreferences.cold':preferences.cold,
+        'clothingPreferences.hot':preferences.hot,
+        'clothingPreferences.rainy':preferences.rainy,
         weatherSensitivity:sensitivity
       }},
       //return to updated 

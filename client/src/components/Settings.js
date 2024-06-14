@@ -42,14 +42,12 @@ function Settings() {
             preferences,
             sensitivity
         }
+        console.log("Sending Update Payload:", payload)
         try{ 
           const response=await fetch(`http://localhost:5000/api/users/preferences`,{
             method:'POST',
             headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify({
-                _id:user._id,
-                preferences:preferences,
-                sensitivity:sensitivity})
+            body:JSON.stringify(payload)
           })
           if(!response.ok) throw new Error('Failed to update preferences')  
           const result=await response.json();

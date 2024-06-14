@@ -50,8 +50,6 @@ function Settings() {
             body:JSON.stringify(payload)
           })
           if(!response.ok) throw new Error('Failed to update preferences')  
-          const result=await response.json();
-          console.log("Updated preferences:", result)
           setMessage('Preferences updated successfully!')
         }catch(error){
             console.error('Failed to submit preferences:', error)

@@ -37,6 +37,11 @@ function Settings() {
         e.preventDefault();
         if(!user) return;
         setLoading(true)
+        const payload={
+            _id:user._id,
+            preferences,
+            sensitivity
+        }
         try{ 
           const response=await fetch(`http://localhost:5000/api/users/preferences`,{
             method:'POST',

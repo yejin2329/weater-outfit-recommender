@@ -198,9 +198,10 @@ app.post('/forgot-password', async(req,res)=>{
 })
 
 app.post('/api/users/preferences', async(req,res)=>{
-  const {_id, preferences, sensitivity}=req.body;
   //debug
-  console.log('Received update request for user ID:', _id);
+  console.log("Received Update Request: ", req.body)
+  const {_id, preferences, sensitivity}=req.body;
+
   try{
     //find user by userId and updates preferences
     const updatedUser=await User.findOneAndUpdate(

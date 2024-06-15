@@ -212,15 +212,16 @@ app.post('/api/users/preferences', async(req,res)=>{
   }
 
   console.log("Update Data to be applied:", updatedData)
+  
   try{
     //find user by userId and updates preferences
     const updatedUser=await User.findByIdAndUpdate(
       _id,
-      {$set:{
+      {$set:updatedData
         
-      }},
-      //return to updated 
+      },
       {new:true}
+      //return to updated 
   
     )
     if(updatedUser){

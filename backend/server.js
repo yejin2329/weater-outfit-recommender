@@ -202,17 +202,20 @@ app.post('/api/users/preferences', async(req,res)=>{
   console.log("Received Update Request: ", req.body)
   const {_id, preferences, sensitivity}=req.body;
 
+  const updateData={
+    'clothingPreferences.cold':preferences.cold,
+    'clothingPreferences.hot':preferences.hot,
+    'clothingPreferences.rainy':preferences.rainy,
+    'weatherSensitivity.coldSensitive':sensitivity.coldSensitive,
+    'weatherSensitivity.heatSensitive':sensitivity.heatSensitive,
+    'weatherSensitivity.windSensitive':sensitivity.windSensitive
+  }
   try{
     //find user by userId and updates preferences
     const updatedUser=await User.findByIdAndUpdate(
       _id,
       {$set:{
-        'clothingPreferences.cold':preferences.cold,
-        'clothingPreferences.hot':preferences.hot,
-        'clothingPreferences.rainy':preferences.rainy,
-        'weatherSensitivity.coldSensitive':sensitivity.coldSensitive,
-        'weatherSensitivity.heatSensitive':sensitivity.heatSensitive,
-        'weatherSensitivity.windSensitive':sensitivity.windSensitive
+        
       }},
       //return to updated 
       {new:true}

@@ -222,8 +222,10 @@ app.post('/api/users/preferences', async(req,res)=>{
       },
       {new:true}
       //return to updated 
-  
     )
+
+    console.log("User after update:", updatedUser);
+    
     if(updatedUser){
       console.log("User after update:", updatedUser)
       res.json({message:"Preferences updated successfully!", updatedUser});

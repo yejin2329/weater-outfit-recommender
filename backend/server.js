@@ -210,6 +210,8 @@ app.post('/api/users/preferences', async(req,res)=>{
     'weatherSensitivity.heatSensitive':sensitivity.heatSensitive,
     'weatherSensitivity.windSensitive':sensitivity.windSensitive
   }
+
+  console.log("Update Data to be applied:", updatedData)
   try{
     //find user by userId and updates preferences
     const updatedUser=await User.findByIdAndUpdate(

@@ -203,12 +203,8 @@ app.post('/api/users/preferences', async(req,res)=>{
   const {_id, preferences, sensitivity}=req.body;
 
   const updateData={
-    'clothingPreferences.cold':preferences.cold,
-    'clothingPreferences.hot':preferences.hot,
-    'clothingPreferences.rainy':preferences.rainy,
-    'weatherSensitivity.coldSensitive':sensitivity.coldSensitive,
-    'weatherSensitivity.heatSensitive':sensitivity.heatSensitive,
-    'weatherSensitivity.windSensitive':sensitivity.windSensitive
+    clothingPreferences,
+    weatherSenstivity
   }
 
   console.log("Update Data to be applied:", updatedData)
@@ -225,7 +221,7 @@ app.post('/api/users/preferences', async(req,res)=>{
     )
 
     console.log("User after update:", updatedUser);
-    
+
     if(updatedUser){
       console.log("User after update:", updatedUser)
       res.json({message:"Preferences updated successfully!", updatedUser});

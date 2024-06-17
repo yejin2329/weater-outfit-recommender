@@ -47,15 +47,7 @@ function Settings() {
             setLoading(false);
         }
     }
-    //function to handle preference changes
-    const handleUpdatePreferences=(key, value)=>{
-        setPreferences(prev=>({...prev, [key]:value}))
-    }
-    
-    //function to handle sensitivity changes
-    const handleUpdateSensitivity=(key, value)=>{
-        setSensitivity(prev=>({...prev, [key]:value}))
-    }
+
 
     
     const[selectedCity, setSelectedCity]=useState('');

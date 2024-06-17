@@ -57,32 +57,7 @@ function Settings() {
         setSensitivity(prev=>({...prev, [key]:value}))
     }
 
-    //function to handle form submission
-    const handleSubmitPreferences=async(e)=>{
-        e.preventDefault();
-        if(!user) return;
-        setLoading(true)
-        const payload={
-            _id:user._id,
-            preferences,
-            sensitivity
-        }
-        console.log("Sending Update Payload:", payload)
-        try{ 
-          const response=await fetch(`http://localhost:5000/api/users/preferences`,{
-            method:'POST',
-            headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify(payload)
-          })
-          if(!response.ok) throw new Error('Failed to update preferences')  
-          setMessage('Preferences updated successfully!')
-        }catch(error){
-            console.error('Failed to submit preferences:', error)
-            setMessage(`Failed to update preferences: ${error.message}`)
-        }finally{
-            setLoading(false)
-        }
-    }
+    
     const[selectedCity, setSelectedCity]=useState('');
     const canadaCities = [
         { name: "Toronto", lat: 43.651070, lon: -79.347015 },

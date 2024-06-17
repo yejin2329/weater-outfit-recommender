@@ -18,10 +18,29 @@ function Settings() {
         windSensitive:false
     })
     
-    const [editMode, setEditMode]=useState(false);
     const [message,setMessage]=useState('');
     const [loading, setLoading]=useState(false);
 
+    //function to update both preferences and city
+    const handleSaveChanges=async()=>{
+        if(!user) return;
+        setLoading(true);
+        try{
+            const payload={
+                _id:user._id,
+                preferences,
+                sensitivity,
+                city:selectedCity
+            }
+            console.log("Sending Update Payload:", payload)
+            const response=await fetch(`http://localhost:5000/api/users/preferences`, {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify(payload)
+            })
+            
+        }
+    }
     //function to handle preference changes
     const handleUpdatePreferences=(key, value)=>{
         setPreferences(prev=>({...prev, [key]:value}))

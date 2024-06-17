@@ -183,9 +183,9 @@ function Settings() {
             {loading && <p>Loading...</p>}
             {message&&<p>{message}</p>}
             {user && (
-                <ClothingPreferences readOnly={!editMode} preferences={preferences} sensitivity={sensitivity}
-                updatePreferences={handleUpdatePreferences}
-                updateSensitivity={handleUpdateSensitivity}
+                <ClothingPreferences readOnly={false} preferences={preferences} sensitivity={sensitivity}
+                updatePreferences={(key,value)=>setPreferences(prev=>({...prev,[key]:value}))}
+                updateSensitivity={(key,value)=>setSensitivity(prev=>({...prev,[key]:value}))}
                 handleSubmit={handleSubmitPreferences}/>
             )}
             {user&&(

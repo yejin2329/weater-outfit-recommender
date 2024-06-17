@@ -42,6 +42,7 @@ function Settings() {
             setMessage('Settings updated successfully!')
         }catch(error){
             console.error('Failed to submit settings:', error);
+            setMessage(`Failed to update settings: ${error.message}`)
         }finally{
             setLoading(false);
         }

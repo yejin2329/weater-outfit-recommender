@@ -38,7 +38,12 @@ function Settings() {
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify(payload)
             })
-            
+            if(!response.ok) throw new Error('Failed to update settings')
+            setMessage('Settings updated successfully!')
+        }catch(error){
+            console.error('Failed to submit settings:', error);
+        }finally{
+            setLoading(false);
         }
     }
     //function to handle preference changes

@@ -186,10 +186,10 @@ function Settings() {
                 <ClothingPreferences readOnly={false} preferences={preferences} sensitivity={sensitivity}
                 updatePreferences={(key,value)=>setPreferences(prev=>({...prev,[key]:value}))}
                 updateSensitivity={(key,value)=>setSensitivity(prev=>({...prev,[key]:value}))}
-                handleSubmit={handleSubmitPreferences}/>
+                />
             )}
             {user&&(
-            <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Save Changes' : 'Modify Preferences'}</button>
+            <button onClick={handleSaveChanges}>Save Changes</button>
             )}
             <div>
                 <label htmlFor="city-select">Choose your city: </label>

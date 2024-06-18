@@ -226,13 +226,13 @@ app.post('/api/users/preferences', async(req,res)=>{
 
     if(updatedUser){
       console.log("User after update:", updatedUser)
-      res.json({message:"Preferences updated successfully!", updatedUser});
+      res.json({message:"Preferences and city updated successfully!", updatedUser});
     }else{
       res.status(404).send("User not found");
     }
   }catch(error){
-    console.error("Error updating preferences:", error);
-    res.status(500).send("Error updating preferences");
+    console.error("Error updating preferences and city:", error);
+    res.status(500).send("Error updating preferences and city");
   }
   
 })

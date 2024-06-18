@@ -38,7 +38,10 @@ function Settings() {
                 headers:{'Content-Type':'application/json'},
                 body:JSON.stringify(payload)
             })
-            if(!response.ok) throw new Error('Failed to update settings')
+            if(!response.ok) {
+                const errorText=await response.text();
+                throw new Error(`Failed to update settings: ${errorText}`)
+            } 
             setMessage('Settings updated successfully!')
         }catch(error){
             console.error('Failed to submit settings:', error);

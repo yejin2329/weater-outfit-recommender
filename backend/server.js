@@ -200,11 +200,16 @@ app.post('/forgot-password', async(req,res)=>{
 app.post('/api/users/preferences', async(req,res)=>{
   //debug
   console.log("Received Update Request: ", req.body)
-  const {_id, preferences, sensitivity}=req.body;
+  const {_id, preferences, sensitivity, city}=req.body;
 
   const updateData={
-    clothingPreferences,
-    weatherSenstivity
+    'clothingPreferences.cold':preferences.cold,
+    'clothingPreferences.hot':preferences.hot,
+    'clothingPreferences.rainy':preferences.rainy,
+    'weatherSensitivity.coldSensitive':sensitivity.coldSensitivity,
+    'weatherSensitivity.heatSensitive':sensitivity.heatSensitivity,
+    'weatherSensitivity.windSensitive':sensitivity.windSensitivity,
+    'defaultCity':city
   }
 
   console.log("Update Data to be applied:", updateData)
@@ -213,11 +218,8 @@ app.post('/api/users/preferences', async(req,res)=>{
     //find user by userId and updates preferences
     const updatedUser=await User.findByIdAndUpdate(
       _id,
-      {$set:updateData
-        
-      },
-      {new:true}
-      //return to updated 
+      {$set:updateData},
+      {new:true, runValidators:true}
     )
 
     console.log("User after update:", updatedUser);

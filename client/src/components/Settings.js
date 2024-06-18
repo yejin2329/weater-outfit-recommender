@@ -41,8 +41,10 @@ function Settings() {
             if(!response.ok) {
                 const errorText=await response.text();
                 throw new Error(`Failed to update settings: ${errorText}`)
-            } 
+            }
+            const data=await response.json(); 
             setMessage('Settings updated successfully!')
+            console.log("Updated data:",data);
         }catch(error){
             console.error('Failed to submit settings:', error);
             setMessage(`Failed to update settings: ${error.message}`)

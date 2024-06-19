@@ -237,6 +237,7 @@ app.post('/api/users/preferences', async(req,res)=>{
   
 })
 
+/*
 app.post('/api/users/update-city', async (req, res) =>{
   const{_id, city}=req.body;
 
@@ -262,7 +263,7 @@ app.post('/api/users/update-city', async (req, res) =>{
       res.status(500).send("Error updating city");
     }
   
-})
+}) */
 /*
 app.post('/api/users/update-location', async(req,res)=>{
   const{userId, latitude, longitude}=req.body;

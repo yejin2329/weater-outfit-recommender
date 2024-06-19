@@ -13,9 +13,10 @@ export const AuthProvider = ({ children }) => {
       setUser(JSON.parse(storedUser));
     }
   },[]);
-  
+
   const login = (userData) => {
     console.log("Logging in user, userData received: ", userData)
+    localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
   };
 

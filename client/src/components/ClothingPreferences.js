@@ -36,7 +36,7 @@ function ClothingPreferences({preferences,sensitivity,updatePreferences, updateS
                 </div>
                 <div>
                     <label>Wind Sensitive:</label>
-                    <input type="checkbox" name="windSensitive" checked={sensitivity.windSensitive} onChange={(e)=>updateSensitivity('windSensitivity', e.target.checked)} disabled={readOnly} />
+                    <input type="checkbox" name="windSensitive" checked={sensitivity.windSensitive} onChange={(e)=>updateSensitivity('windSensitivite', e.target.checked)} disabled={readOnly} />
                 </div>
                 {!readOnly&&<button type="submit">Update Preferences</button>}
             </form>

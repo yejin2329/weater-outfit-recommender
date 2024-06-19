@@ -16,11 +16,12 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     console.log("Logging in user, userData received: ", userData)
-    localStorage.setItem('user', JSON.stringify(userData));
+    localStorage.setItem('user', JSON.stringify(userData)); //save user data
     setUser(userData);
   };
 
   const logout = () => {
+    localStorage.removeItem('user'); //remove user data
     setUser(null);
   };
 

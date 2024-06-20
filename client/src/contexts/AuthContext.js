@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-
+  useSessionTimeout(logout);
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>

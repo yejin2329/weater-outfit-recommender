@@ -6,10 +6,10 @@ export const useAuth = () => useContext(AuthContext);
 
 const useSessionTimeout=(logout, timeout=3600000)=>{
   useEffect(()=>{
-    const timer=setTimeout(()=>{
-      logout();
-    }, [logout, timeout])
-  })
+    const timer=setTimeout(logout,timeout);
+
+    return()=>clearTimeout(timer);
+  },[logout,timeout])
 }
 
 export const AuthProvider = ({ children }) => {

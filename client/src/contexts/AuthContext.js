@@ -25,6 +25,14 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const useSessionTimeout=(logout, timeout=3600000)=>{
+    useEffect(()=>{
+      const timer=setTimeout(()=>{
+        logout();
+      }, [logout, timeout])
+    })
+  }
+
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
       {children}

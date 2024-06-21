@@ -4,6 +4,7 @@ const AuthContext = createContext(null);
 
 export const useAuth = () => useContext(AuthContext);
 
+//function for user's remain in account
 const useSessionTimeout=(logout, timeout=3600000)=>{
   useEffect(()=>{
     const timer=setTimeout(logout,timeout);

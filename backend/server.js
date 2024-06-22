@@ -224,10 +224,9 @@ app.post('/api/users/preferences', async(req,res)=>{
       {new:true, runValidators:true}
     )
 
-    //console.log("User after update:", updatedUser);
+    console.log("User after update:", updatedUser);
 
     if(updatedUser){
-      console.log("User after update:", updatedUser)
       res.json({message:"Preferences and city updated successfully!", updatedUser});
     }else{
       res.status(404).send("User not found");

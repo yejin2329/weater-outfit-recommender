@@ -214,7 +214,7 @@ app.post('/api/users/preferences', async(req,res)=>{
     'defaultCity':city
   }
 
-  console.log("Update Data to be applied:", updateData)
+  //console.log("Update Data to be applied:", updateData)
   
   try{
     //find user by userId and updates preferences
@@ -224,7 +224,7 @@ app.post('/api/users/preferences', async(req,res)=>{
       {new:true, runValidators:true}
     )
 
-    console.log("User after update:", updatedUser);
+    //console.log("User after update:", updatedUser);
 
     if(updatedUser){
       console.log("User after update:", updatedUser)

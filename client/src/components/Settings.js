@@ -90,7 +90,12 @@ function Settings() {
             if(response.ok){
                         //debug
              console.log("Fetched preferences:", data)
-             setPreferences(data.preferences || {cold:'', hot:'',rainy:''});
+             setPreferences({
+                cold:data.preferences.cold || '',
+                hot:data.preferences.hot || '',
+                rainy: data.preferences.rainy ||''
+             });
+             
              setSelectedCity(data.city||'Select a city')
             }else{
                 throw new Error(data.message || 'Failed to fetch preferences')

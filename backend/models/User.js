@@ -26,7 +26,7 @@ const userSchema=new mongoose.Schema({
         heatSensitive: {type:Boolean},
         windSensitive: {type:Boolean} 
     },
-    defaultLocation: {type:String, default:null},
+    defaultLocation: {type:String},
 })
 
 const User=mongoose.model('User', userSchema);

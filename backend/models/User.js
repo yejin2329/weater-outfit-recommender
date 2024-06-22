@@ -22,9 +22,9 @@ const userSchema=new mongoose.Schema({
         rainy: {type:String} 
     },
     weatherSensitivity: {
-        coldSensitive:  {type:Boolean, default:false},
-        heatSensitive: {type:Boolean, default: false},
-        windSensitive: {type:Boolean, default:false} 
+        coldSensitive:  {type:Boolean},
+        heatSensitive: {type:Boolean},
+        windSensitive: {type:Boolean} 
     },
     defaultLocation: {type:String, default:null},
 })

@@ -24,6 +24,11 @@ function Settings() {
     //function to update both preferences and city
     const handleSaveChanges=async()=>{
         if(!user) return;
+        if(!preferences.cold || !preferences.hot || !preferences.rainy){
+            console.error("Preferences are not fully set")
+            return;
+        }
+        
         setLoading(true);
         try{
             const payload={
@@ -95,7 +100,7 @@ function Settings() {
                 hot:data.preferences.hot || '',
                 rainy: data.preferences.rainy ||''
              });
-             
+
              setSelectedCity(data.city||'Select a city')
             }else{
                 throw new Error(data.message || 'Failed to fetch preferences')

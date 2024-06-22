@@ -202,6 +202,8 @@ app.post('/api/users/preferences', async(req,res)=>{
   console.log("Received Update Request: ", req.body)
   const {_id, preferences, sensitivity, city}=req.body;
 
+  console.log(`Updating user Id ${_id} with preferences: ${JSON.stringify(preferences)}, sensitivity: ${JSON.stringify(sensitivity)}, city: ${city}`)
+  
   const updateData={
     'clothingPreferences.cold':preferences.cold,
     'clothingPreferences.hot':preferences.hot,

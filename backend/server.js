@@ -201,7 +201,9 @@ app.post('/api/users/preferences', async(req,res)=>{
   //debug
   console.log("Received Update Request: ", req.body)
   const {_id, preferences, sensitivity, city}=req.body;
-
+  if(!preferences||!preferences.cold ||!preferences.hot||!preferences.rainy){
+    return res.status(400).send("Missing preferences information")
+  }
   console.log(`Updating user Id ${_id} with preferences: ${JSON.stringify(preferences)}, sensitivity: ${JSON.stringify(sensitivity)}, city: ${city}`)
   
   const updateData={

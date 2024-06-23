@@ -28,7 +28,7 @@ function Settings() {
             console.error("Preferences are not fully set")
             return;
         }
-        
+
         setLoading(true);
         try{
             const payload={
@@ -90,7 +90,12 @@ function Settings() {
 
         setLoading(true);
         try{
-            const response=await fetch(`http://localhost:5000/api/users/preferences/${user._id}`)
+            const response=await fetch(`http://localhost:5000/api/users/preferences/${user._id}`,{
+                method:'GET',
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            });
             const data=await response.json();
             if(response.ok){
                         //debug

@@ -211,9 +211,9 @@ app.post('/api/users/preferences', async(req,res)=>{
     'clothingPreferences.cold':preferences.cold,
     'clothingPreferences.hot':preferences.hot,
     'clothingPreferences.rainy':preferences.rainy,
-    'weatherSensitivity.coldSensitive':sensitivity.coldSensitivity,
-    'weatherSensitivity.heatSensitive':sensitivity.heatSensitivity,
-    'weatherSensitivity.windSensitive':sensitivity.windSensitivity,
+    'weatherSensitivity.coldSensitive':sensitivity.coldSensitive,
+    'weatherSensitivity.heatSensitive':sensitivity.heatSensitive,
+    'weatherSensitivity.windSensitive':sensitivity.windSensitive,
     'defaultCity':req.body.city
   }
 

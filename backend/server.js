@@ -84,7 +84,7 @@ app.get('/api/users/preferences/:_id', async (req, res) =>{
       }
 
       res.json({
-        preferences:user.preferences || {},
+        preferences:user.clothingPreferences || {},
       city:user.city || "Default city or null"
     });
 }catch(error){

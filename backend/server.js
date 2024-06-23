@@ -85,7 +85,8 @@ app.get('/api/users/preferences/:_id', async (req, res) =>{
 
       res.json({
         preferences:user.clothingPreferences || {},
-      city:user.city || "Default city or null"
+        sensitivity:user.weatherSensitivity || {},
+        city:user.city || "Default city or null"
     });
 }catch(error){
   console.error('Failed to fetch preferences:',error);

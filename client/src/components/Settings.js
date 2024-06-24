@@ -130,6 +130,13 @@ function Settings() {
         }
     }, [user, fetchUserPreferences])
 
+    useEffect(()=>{
+        const storedCity=localStorage.getItem('selectedCity');
+        if(storedCity){
+            setSelectedCity(storedCity);
+        }
+    }, [])
+
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         setSelectedCity(event.target.value);

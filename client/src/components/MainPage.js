@@ -19,7 +19,7 @@ function MainPage(){
         setLoading(true)
         setError(null)
 
-        const url=lat&lon
+        const url=lat&&lon
              ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
              : `http://localhost:5000/weather?userId=${user._id}`;
     

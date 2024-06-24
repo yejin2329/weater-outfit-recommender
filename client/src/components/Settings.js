@@ -133,6 +133,7 @@ function Settings() {
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         setSelectedCity(event.target.value);
+        localStorage.setItem('selectedCity', city.name)
         updateLocation(city);
     }    
 

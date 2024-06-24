@@ -59,6 +59,7 @@ async function fetchWeather(lat,lon){
 //fetch weather data
 app.get('/weather', async(req,res)=>{
   const{_id}=req.query;
+
   try{
     const user=await User.findById(_id)
     if(user&&user.defaultLocation){

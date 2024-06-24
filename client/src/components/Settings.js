@@ -105,6 +105,11 @@ function Settings() {
                 hot:data.preferences.hot || '',
                 rainy: data.preferences.rainy ||''
              });
+             setSensitivity({
+                coldSensitive:data.sensitivity.coldSensitive || false,
+                heatSensitive:data.sensitivity.heatSensitive || false,
+                windSensitive:data.sensitivity.windSensitive || false
+             })
 
              setSelectedCity(data.city||'Select a city')
             }else{

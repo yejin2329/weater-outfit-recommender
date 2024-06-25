@@ -134,6 +134,8 @@ function Settings() {
         const storedCity=localStorage.getItem('selectedCity');
         if(storedCity&&canadaCities.some(city=>city.name===storedCity)){
             setSelectedCity(storedCity);
+        }else{
+            setSelectedCity('Select a city');
         }
     }, [])
 

@@ -20,18 +20,7 @@ async function createUser() {
             username: 'testUser3',
             email:'testuser3@example.com',
             password: hashedPassword,
-            /*
-            clothingPreferences:{
-                cold:"Heavy Coat",
-                hot:"T-shirt",
-                rainy:"Raincoat"
-            },
-            weatherSensitivity:{
-                coldSensitive:false,
-                heatSensitive:false,
-                windSensitive:false
-            },
-            defaultLocation:null */
+            
         });
 
         await newUser.save();

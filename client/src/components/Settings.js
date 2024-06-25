@@ -132,9 +132,12 @@ function Settings() {
 
     useEffect(()=>{
         const storedCity=localStorage.getItem('selectedCity');
+        console.log("Stored city:", storedCity)
         if(storedCity&&canadaCities.some(city=>city.name===storedCity)){
+            console.log("City found in list, setting:", storedCity)
             setSelectedCity(storedCity);
         }else{
+            console.log("City not found or no city sotred, setting default")
             setSelectedCity('Select a city');
         }
     }, [])

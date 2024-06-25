@@ -11,7 +11,6 @@ function Login(){
 
     const handleLogin=async(e)=>{
         e.preventDefault();
-        //console.log('Logging in with:', userId, password);
 
         try {
             const response = await fetch('http://localhost:5000/login', {

@@ -132,7 +132,7 @@ function Settings() {
 
     useEffect(()=>{
         const storedCity=localStorage.getItem('selectedCity');
-        if(storedCity){
+        if(storedCity&&canadaCities.some(city=>city.name===storedCity)){
             setSelectedCity(storedCity);
         }
     }, [])

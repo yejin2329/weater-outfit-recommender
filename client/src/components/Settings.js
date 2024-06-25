@@ -144,10 +144,14 @@ function Settings() {
 
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
-        setSelectedCity(event.target.value);
+        if(city){
+        setSelectedCity(city.name);
         localStorage.setItem('selectedCity', city.name)
         updateLocation(city);
+    }else{
+        console.log("City not found in list")
     }    
+}
 
     const updateLocation=async(city)=>{
         if(!user){

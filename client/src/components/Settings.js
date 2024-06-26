@@ -84,8 +84,8 @@ function Settings() {
         { name: "Thunder Bay", lat: 48.380895, lon: -89.247682 }
       ];
     
-
-    const fetchUserPreferences=useCallback(async()=>{
+useEffect(()=>{
+    const fetchUserPreferences= async()=>{
         if(!user) return;
 
         setLoading(true);
@@ -111,6 +111,10 @@ function Settings() {
                 windSensitive:data.sensitivity.windSensitive || false
              })
 
+             const storedCity=localStorage.getItem('selectedCity');
+             if(storedCity && canadaCities.some(city=>city.name===storedCity)){
+                selectedCity(storedCity);
+             }
              setSelectedCity(data.city||'Select a city')
             }else{
                 throw new Error(data.message || 'Failed to fetch preferences')
@@ -122,7 +126,7 @@ function Settings() {
         }finally{
             setLoading(false);
         }
-    },[user]);
+    };
 
     useEffect(()=>{
         if(user){

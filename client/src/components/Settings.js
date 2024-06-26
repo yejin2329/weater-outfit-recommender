@@ -132,6 +132,7 @@ useEffect(()=>{
     fetchUserPreferences();
 },[])
 
+/*
     useEffect(()=>{
         if(user){
             fetchUserPreferences();
@@ -149,7 +150,7 @@ useEffect(()=>{
             setSelectedCity('Select a city');
         }
     }, [])
-
+*/
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         if(city){

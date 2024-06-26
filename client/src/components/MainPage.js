@@ -14,7 +14,7 @@ function MainPage(){
     const{user, logout}=useAuth();
 
     const[OutfitRecommendations, setOutfitRecommendations]=useState([]);
-    
+
     console.log('User in MainPage:', user);
 
      //fetch weather data
@@ -68,7 +68,13 @@ function MainPage(){
        
     },[]);
 
- 
+    //
+    useEffect(()=>{
+        if(weather && user){
+            const recommendations=recommendOutfit(weather, user.preferences, user.sensitivity);
+            setOutfitRecommendations(recommendations);
+        }
+    },[weather,user])
     
     useEffect(()=>{
         //function to create new snowflake element

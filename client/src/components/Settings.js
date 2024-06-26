@@ -113,9 +113,10 @@ useEffect(()=>{
 
              const storedCity=localStorage.getItem('selectedCity');
              if(storedCity && canadaCities.some(city=>city.name===storedCity)){
-                selectedCity(storedCity);
-             }
+                setSelectedCity(storedCity);
+             }else{
              setSelectedCity(data.city||'Select a city')
+             }
             }else{
                 throw new Error(data.message || 'Failed to fetch preferences')
             }
@@ -127,6 +128,9 @@ useEffect(()=>{
             setLoading(false);
         }
     };
+
+    fetchUserPreferences();
+},[])
 
     useEffect(()=>{
         if(user){

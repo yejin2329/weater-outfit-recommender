@@ -13,6 +13,8 @@ function MainPage(){
     const [error, setError]=useState(null);
     const{user, logout}=useAuth();
 
+    const[OutfitRecommendations, setOutfitRecommendations]=useState([]);
+    
     console.log('User in MainPage:', user);
 
      //fetch weather data

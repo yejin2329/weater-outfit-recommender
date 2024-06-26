@@ -21,7 +21,9 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
                 recommendations.push('Umbrella')
             }
         }
+        return recommendations;
     }
-
+    
+    export default recommendOutfit;
 
 //export default recommendations;

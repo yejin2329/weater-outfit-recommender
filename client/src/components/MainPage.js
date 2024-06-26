@@ -130,6 +130,12 @@ function MainPage(){
             {error&&<p>Error:{error}</p>}
 
             <div className="scene">
+            
+            {OutfitRecommendations.length>0 &&(
+                <div>
+                    <h2>Recommended Outfit:</h2>
+                    </div>
+            )}
             <div className="snowflakes" id="snowflakes-container"></div>
                 <div className="person">
                     <div className="umbrella"></div>

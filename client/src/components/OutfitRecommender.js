@@ -9,6 +9,11 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
             }
         }else if(weather.temperature>=5 && weather.temperature<20){
             recommendations.push('Light Jacket', 'Long Sleeve Shirt')
+        }else{
+            recommendations.push('T-shirt', 'Shorts');
+            if(sensitivity.heatSensitive){
+                recommendations.push('Sun Hat')
+            }
         }
     }
 

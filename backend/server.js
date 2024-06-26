@@ -218,7 +218,6 @@ app.post('/api/users/preferences', async(req,res)=>{
     'defaultCity':req.body.city
   }
 
-  //console.log("Update Data to be applied:", updateData)
   
   try{
     //find user by userId and updates preferences

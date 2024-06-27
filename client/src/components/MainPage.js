@@ -134,6 +134,13 @@ function MainPage(){
             {OutfitRecommendations.length>0 &&(
                 <div>
                     <h2>Recommended Outfit:</h2>
+                    <ul>
+                        {OutfitRecommendations.map((item, index)=>(
+                            <li key={index}>{item}</li>
+                        )
+
+                        )}
+                    </ul>
                     </div>
             )}
             <div className="snowflakes" id="snowflakes-container"></div>

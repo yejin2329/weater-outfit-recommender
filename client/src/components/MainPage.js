@@ -74,8 +74,8 @@ function MainPage(){
             console.log("Weather data:", weather);
             console.log("User Preferences:", user.preferences);
             console.log("User Sensitivity:", user.sensitivity);
-            
             const recommendations=recommendOutfit(weather, user.preferences, user.sensitivity);
+            console.log("Recommendations:", recommendations);
             setOutfitRecommendations(recommendations);
         }
     },[weather,user])

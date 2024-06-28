@@ -73,6 +73,8 @@ function MainPage(){
         if(weather && user){
             console.log("Weather data:", weather);
             console.log("User Preferences:", user.preferences);
+            console.log("User Sensitivity:", user.sensitivity);
+            
             const recommendations=recommendOutfit(weather, user.preferences, user.sensitivity);
             setOutfitRecommendations(recommendations);
         }

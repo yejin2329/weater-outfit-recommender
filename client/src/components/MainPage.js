@@ -71,6 +71,7 @@ function MainPage(){
     //
     useEffect(()=>{
         if(weather && user){
+            console.log("Weather data:", weather);
             const recommendations=recommendOutfit(weather, user.preferences, user.sensitivity);
             setOutfitRecommendations(recommendations);
         }

@@ -4,8 +4,6 @@ const bcrypt=require('bcrypt');
 
 require('dotenv').config({ path: '../.env' });
 
-
-
 console.log('MongoDB URI:', process.env.MONGODB_URI);
 
 mongoose.connect(process.env.MONGODB_URI)

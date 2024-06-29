@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json()); //for parsing application/json
 app.use(cors());
+
 //mongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -240,8 +241,6 @@ app.post('/api/users/preferences', async(req,res)=>{
   }
   
 })
-
-
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

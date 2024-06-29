@@ -1,5 +1,5 @@
 // Settings.js
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 import ClothingPreferences from './ClothingPreferences';
 import {Link} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';

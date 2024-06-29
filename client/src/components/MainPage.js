@@ -63,8 +63,6 @@ function MainPage(){
                 console.error('Geolocation Error:', error)
             }
         )
-        
-    
        
     },[]);
 

@@ -25,7 +25,13 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
 
         //recommend based on tempertaure
         if(weather.temperature<5){
-            recommendations.push('Thermal Jacket')
+            if(preferences.cold){
+                recommendations.push(preferences.cold)
+                addSensitiveItems();
+            }else{
+                recommendations=recommendations.concat(defaultClothing.cold)
+            }
+        }
             if(sensitivity.coldSensitive){
                 recommendations.push('Scarf', 'Gloves')
             }

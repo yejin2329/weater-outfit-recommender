@@ -2,6 +2,15 @@
     
 const recommendOutfit=(weather, preferences, sensitivity)=>{
         let recommendations=[];
+
+        //define default clothing
+        const defaultClothing={
+            cold:['Thermal Jacket'],
+            hot:['T-shirt'],
+            rainy:['Waterproof Jacket']
+        }
+
+        
         if(weather.temperature<5){
             recommendations.push('Thermal Jacket')
             if(sensitivity.coldSensitive){

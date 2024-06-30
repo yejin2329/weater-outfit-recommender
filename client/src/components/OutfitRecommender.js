@@ -10,7 +10,20 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
             rainy:['Waterproof Jacket']
         }
 
+        //to add sensitive items
+        const addSensitiveItems=()=>{
+            if(sensitivity.coldSensitive){
+                recommendations.push('Scarf', 'Gloves')
+            }
+            if(sensitivity.heatSensitive){
+                recommendations.push('Sun Hat')
+            }
+            if(sensitivity.rainSensitive){
+                recommendations.push('Umbrella')
+            }
+        }
         
+        //recommend based on tempertaure
         if(weather.temperature<5){
             recommendations.push('Thermal Jacket')
             if(sensitivity.coldSensitive){

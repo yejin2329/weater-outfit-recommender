@@ -35,8 +35,9 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
             if(preferences.cold){
                 recommendations.push(preferences.cold)
             }else{
-            recommendations.push('T-shirt', 'Shorts');
+            recommendations.push('Light Jacket', 'Long Sleeve Shirt');
             }
+        }else{
             if(sensitivity.heatSensitive){
                 recommendations.push('Sun Hat')
             }

@@ -38,10 +38,14 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
             recommendations.push('Light Jacket', 'Long Sleeve Shirt');
             }
         }else{
-            if(sensitivity.heatSensitive){
-                recommendations.push('Sun Hat')
+            if(preferences.hot){
+                recommendations.push(preferences.hot)
+                if(sensitivity.heatSensitive){
+                    recommendations.push('Sun Hat')
+                }
             }
         }
+        
         if(weather.condition.includes('rain')){
             recommendations.push('Waterproof Jacket')
             if(sensitivity.rainSensitive){

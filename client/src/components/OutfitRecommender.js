@@ -43,9 +43,11 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
                 if(sensitivity.heatSensitive){
                     recommendations.push('Sun Hat')
                 }
+            }else{
+                recommendations=recommendations.concat(defaultClothing.hot)
             }
         }
-        
+
         if(weather.condition.includes('rain')){
             recommendations.push('Waterproof Jacket')
             if(sensitivity.rainSensitive){

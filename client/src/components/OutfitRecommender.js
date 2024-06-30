@@ -5,8 +5,8 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
 
         //define default clothing
         const defaultClothing={
-            cold:['Thermal Jacket'],
-            hot:['T-shirt'],
+            cold:['Thermal Jacket', 'Heavy Coat'],
+            hot:['T-shirt', 'Shorts'],
             rainy:['Waterproof Jacket']
         }
 

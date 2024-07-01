@@ -51,11 +51,11 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
         if(weather.condition.includes('rain')){
             if(preferences.rainy){
                 recommendations.push(preferences.rainy)
+            }else{
+                recommendations.push('Waterproof Jacket')
             }
         
-            if(sensitivity.rainSensitive){
-                recommendations.push('Umbrella')
-            }
+          
         }
         return recommendations;
     }

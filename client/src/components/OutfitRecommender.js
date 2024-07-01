@@ -54,8 +54,7 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
             }else{
                 recommendations.push('Waterproof Jacket')
             }
-        
-          
+            addSensitiveItems();
         }
         return recommendations;
     }

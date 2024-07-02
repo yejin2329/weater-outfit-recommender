@@ -31,12 +31,15 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
            recommendations.push(preferences.cold||'Light Jacket', 'Long Sleeve Shirt')
             }else{
             recommendations.push(preferences.hot||defaultClothing.hot);
+            if(sensitivity.heatSensitive){
+                recommendations.push('Sun Hat')
+            }
             }
        
 
         if(weather.condition.includes('rain')){
             if(preferences.rainy){
-                recommendations.push(preferences.rainy)
+                recommendations.push(preferences.rainy||defaultClothing.rainy)
             }else{
                 recommendations.push('Waterproof Jacket')
             }

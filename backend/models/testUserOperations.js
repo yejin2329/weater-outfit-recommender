@@ -18,7 +18,6 @@ async function createUser() {
             username: 'testUser3',
             email:'testuser3@example.com',
             password: hashedPassword,
-            
         });
 
         await newUser.save();

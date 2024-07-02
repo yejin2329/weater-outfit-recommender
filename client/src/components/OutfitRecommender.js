@@ -28,13 +28,13 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
                 recommendations=[...recommendations, ...(preferences.cold ? [preferences.cold]: defaultClothing.cold)]
                 addSensitiveItems();
         }else if(weather.temperature>=5 && weather.temperature<20){
-           recommendations.push(preferences.cold||'Light Jacket', 'Long Sleeve Shirt')
-            }else{
-            recommendations.push(preferences.hot||defaultClothing.hot);
+           recommendations=[...recommendations, ...(preferences.cold ? [preferences.cold]:['Light Jacket', 'Long Sleeve Shirt'])]
+        }else{
+            recommendations=[...recommendations, ...(preferences.hot ? [preferences.hot]:defaultClothing.hot)]
             if(sensitivity.heatSensitive){
                 recommendations.push('Sun Hat')
             }
-            }
+        }
        
 
         if(weather.condition.includes('rain')){

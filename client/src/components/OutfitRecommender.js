@@ -28,8 +28,6 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
             if(preferences.cold){
                 recommendations.push(preferences.cold||defaultClothing.cold)
                 addSensitiveItems();
-            }else{
-                recommendations=recommendations.concat(defaultClothing.cold)
             }
         }else if(weather.temperature>=5 && weather.temperature<20){
             if(preferences.cold){

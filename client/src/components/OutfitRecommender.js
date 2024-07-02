@@ -38,14 +38,11 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
        
 
         if(weather.condition.includes('rain')){
-            if(preferences.rainy){
                 recommendations.push(preferences.rainy||defaultClothing.rainy)
-            }else{
-                recommendations.push('Waterproof Jacket')
-            }
-            addSensitiveItems();
+                addSensitiveItems();
         }
-        return recommendations;
+
+        return recommendations.filter((item,index,self)=>self.indexOf(item)===index);
     }
     
     export default recommendOutfit;

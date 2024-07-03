@@ -1,5 +1,4 @@
-//function OutfitRecommener(){
-    
+
 const recommendOutfit=(weather, preferences, sensitivity)=>{
         let recommendations=[];
 
@@ -47,4 +46,3 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
     
     export default recommendOutfit;
 
-//export default recommendations;

@@ -120,13 +120,14 @@ function MainPage(){
              
             </div>
             
-            {weather&&(
+       
+           {/* {weather&&(   */}
                 <div className="weather-info">
                     <h2>Current Weather</h2>
-                    <p>Temperature: {weather.temperature}</p>
-                    <p>Description: {weather.description}</p>
+                  {/*  <p>Temperature: {weather.temperature}</p>
+                    <p>Description: {weather.description}</p> */}
                 </div>
-            )}
+            {/* )}  */}
 
             {loading&&<p>Loading weather...</p>}
             {error&&<p>Error:{error}</p>}

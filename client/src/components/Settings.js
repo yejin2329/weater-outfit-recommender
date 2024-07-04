@@ -188,9 +188,7 @@ useEffect(()=>{
                 updateSensitivity={(key,value)=>setSensitivity(prev=>({...prev,[key]:value}))}
                 />
             )}
-            {user&&(
-            <button onClick={handleSaveChanges}>Save Changes</button>
-            )}
+            
             <div>
                 <label htmlFor="city-select">Choose your city: </label>
                 <select id="city-select" value={selectedCity} onChange={handleLocationChange}>
@@ -199,6 +197,9 @@ useEffect(()=>{
                         <option key={city.name} value={city.name}>{city.name}</option>
                     ))}
                 </select>
+                {user&&(
+            <button onClick={handleSaveChanges}>Save Changes</button>
+            )}
             </div>
             </div>
             <p>Back to <Link to="/">Main Page</Link></p>

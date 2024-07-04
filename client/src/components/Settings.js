@@ -37,7 +37,7 @@ function Settings() {
                 sensitivity,
                 city:selectedCity
             }
-            console.log("Sending Update Payload:", payload)
+            //console.log("Sending Update Payload:", payload)
             const response=await fetch(`http://localhost:5000/api/users/preferences`, {
                 method:'POST',
                 headers:{'Content-Type':'application/json'},
@@ -132,25 +132,7 @@ useEffect(()=>{
     fetchUserPreferences();
 },[])
 
-/*
-    useEffect(()=>{
-        if(user){
-            fetchUserPreferences();
-        }
-    }, [user, fetchUserPreferences])
 
-    useEffect(()=>{
-        const storedCity=localStorage.getItem('selectedCity');
-        console.log("Stored city:", storedCity)
-        if(storedCity&&canadaCities.some(city=>city.name===storedCity)){
-            console.log("City found in list, setting:", storedCity)
-            setSelectedCity(storedCity);
-        }else{
-            console.log("City not found or no city sotred, setting default")
-            setSelectedCity('Select a city');
-        }
-    }, [])
-*/
     const handleLocationChange=(event)=>{
         const city=canadaCities.find(city=>city.name===event.target.value)
         if(city){

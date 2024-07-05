@@ -197,11 +197,13 @@ useEffect(()=>{
                         <option key={city.name} value={city.name}>{city.name}</option>
                     ))}
                 </select>
-                {user&&(
+                
+            </div>
+            {user&&(
             <button onClick={handleSaveChanges}>Save Changes</button>
             )}
             </div>
-            </div>
+        
             <p>Back to <Link to="/">Main Page</Link></p>
         </div>
     );

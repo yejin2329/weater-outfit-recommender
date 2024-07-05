@@ -200,8 +200,11 @@ useEffect(()=>{
                 
             </div>
             {user&&(
+                <div className="button-container">
             <button onClick={handleSaveChanges}>Save Changes</button>
+            </div>
             )}
+         
             </div>
         
             <p>Back to <Link to="/">Main Page</Link></p>

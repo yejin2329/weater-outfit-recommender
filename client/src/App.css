@@ -138,3 +138,7 @@ label {
 .setting-container h1{
   text-align:left;
 }
+
+.button-container{
+  margin-top:20px;
+}

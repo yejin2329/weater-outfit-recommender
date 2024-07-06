@@ -17,6 +17,7 @@ function MainPage(){
 
     console.log('User in MainPage:', user);
 
+  
      //fetch weather data
      const fetchWeather=async(lat,lon)=>{
         setLoading(true)
@@ -39,14 +40,14 @@ function MainPage(){
         }finally{
             setLoading(false);
         }
-    }
+    } 
 
     //effect for fetching weather
     useEffect(()=>{
         if(user&&(location || customLocation)){
             fetchWeather(location?.latitude, location?.longitude);
         }
-    },[user,customLocation])
+    },[])
 
     //effect for initial fetch
     useEffect(()=>{

@@ -32,12 +32,9 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
         if(weather.temperature<5){
             recommendations.push(...(preferences.cold ? [preferences.cold] : defaultClothing.cold));
         }else if(weather.temperature>=5 && weather.temperature<20){
-           recommendations=[...recommendations, ...(preferences.cold ? [preferences.cold]:['Light Jacket', 'Long Sleeve Shirt'])]
+            recommendations.push(...(preferences.cold ? [preferences.cold] : ['Light Jacket', 'Long Sleeve Shirt']));
         }else{
-            recommendations=[...recommendations, ...(preferences.hot ? [preferences.hot]:defaultClothing.hot)]
-            if(sensitivity.heatSensitive){
-                recommendations.push('Sun Hat')
-            }
+            recommendations.push(...(preferences.hot ? [preferences.hot] : defaultClothing.hot));
         }
        
         //check for rainy weather

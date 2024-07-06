@@ -39,9 +39,11 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
        
         //check for rainy weather
         if(weather.condition.includes('rain')){
-                recommendations=[...recommendations, ...(preferences.rainy ? [preferences.rainy]: defaultClothing.rainy)]
-                addSensitiveItems();
+            recommendations.push(...(preferences.rainy ? [preferences.rainy] : defaultClothing.rainy));
         }
+
+        //check for sensitivity regardless of temperature
+        addSensitiveItems();
 
         return recommendations.filter((item,index,self)=>self.indexOf(item)===index);
     }

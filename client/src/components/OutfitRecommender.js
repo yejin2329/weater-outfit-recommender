@@ -13,6 +13,9 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
         const addSensitiveItems=()=>{
             if(sensitivity.coldSensitive){
                 recommendations.push('Scarf', 'Gloves')
+                if(!weather.condition.includes('rain')&&weather.temperature>=5){
+                    recommendations.push(preferences.cold || 'Light Jacket')
+                }
             }
             if(sensitivity.heatSensitive){
                 recommendations.push('Sun Hat')

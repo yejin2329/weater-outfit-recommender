@@ -91,8 +91,8 @@ function MainPage(){
                 snowflake.style.width=size;
                 snowflake.style.height=size;
                 const position=Math.random()*100+'%';
-                snowflake.style.top=position
-                snowflake.style.left=position
+                snowflake.style.left=position;
+                snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
                 snowflakesContainer.appendChild(snowflake)
             }
         }

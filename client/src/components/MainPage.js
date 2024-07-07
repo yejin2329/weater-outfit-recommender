@@ -79,7 +79,7 @@ function MainPage(){
         }
     },[weather,user])
     
-    useEffect(()=>{
+   // useEffect(()=>{
         //function to create new snowflake element
         function createSnowflakes(){
             const snowflakesContainer=document.getElementById('snowflakes-container')
@@ -92,13 +92,16 @@ function MainPage(){
                 snowflake.style.height=size;
                 const position=Math.random()*100+'%';
                 snowflake.style.left=position;
+                snowflake.style.opacity=0.5+Math.random()*0.5;
+                snowflake.style.animationName="falling-snow";
                 snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
+            
                 snowflakesContainer.appendChild(snowflake)
             }
         }
 
         createSnowflakes();
-    },[])
+  //  },[])
 
     
     return(

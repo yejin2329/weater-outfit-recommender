@@ -60,9 +60,11 @@
 
 @keyframes falling-snow {
   0% {
+    top: -10%;
     transform: translateY(-10vh) rotate(0deg);
   }
   100% {
+    top: 110%;
     transform: translateY(100vh) rotate(360deg);
   }
 }

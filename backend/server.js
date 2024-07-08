@@ -6,7 +6,6 @@ const nodemailer=require('nodemailer');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
-const fetch=require('node-fetch');
 const User=require('./models/User');
 
 const app = express();

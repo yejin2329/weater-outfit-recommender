@@ -46,6 +46,7 @@ app.get('/', (req, res) => {
 
 //function for weather API
 async function fetchWeather(lat,lon){
+  const{default:fetch}=await import('node-fetch')
   const apiKey=process.env.OPENWEATHER_API_KEY;
   const url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   try{

@@ -95,7 +95,8 @@ function MainPage(){
                 snowflake.style.opacity=0.5+Math.random()*0.5;
                 snowflake.style.animationName="falling-snow";
                 snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
-            
+                snowflake.style.animationTimingFunction='linear';
+                snowflake.style.animationIterationCount='infinite';
                 snowflakesContainer.appendChild(snowflake)
             }
         }

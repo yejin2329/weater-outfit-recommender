@@ -6,6 +6,7 @@ const nodemailer=require('nodemailer');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
+const fetch=require('node-fetch');
 const User=require('./models/User');
 
 const app = express();
@@ -45,7 +46,7 @@ app.get('/', (req, res) => {
 
 //function for weather API
 async function fetchWeather(lat,lon){
-  const apiKey='';
+  const apiKey=process.env.OPENWEATHER_API_KEY;
   const url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   try{
     const response=await fetch(url);

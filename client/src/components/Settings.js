@@ -58,8 +58,6 @@ function Settings() {
         }
     }
 
-
-    
     const[selectedCity, setSelectedCity]=useState('');
     const canadaCities = [
         { name: "Toronto", lat: 43.651070, lon: -79.347015 },
@@ -98,7 +96,7 @@ useEffect(()=>{
             });
             const data=await response.json();
             if(response.ok){
-                        //debug
+            //debug
              console.log("Fetched preferences:", data)
              setPreferences({
                 cold:data.preferences.cold || '',

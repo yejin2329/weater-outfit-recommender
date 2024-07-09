@@ -83,6 +83,7 @@ function MainPage(){
         //function to create new snowflake element
         function createSnowflakes(){
             const snowflakesContainer=document.getElementById('snowflakes-container')
+            if(snowflakesContainer){
             snowflakesContainer.innerHTML=''; //clear previous snowflakes
             for(let i=0; i<50; i++){
                 const snowflake=document.createElement('div');
@@ -99,8 +100,10 @@ function MainPage(){
                 snowflake.style.animationIterationCount='infinite';
                 snowflakesContainer.appendChild(snowflake)
             }
+        }else{
+            console.error('Snowflakes container not found')
         }
-
+    }
         createSnowflakes();
   //  },[])
 

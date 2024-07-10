@@ -20,8 +20,8 @@ function MainPage(){
   
      //fetch weather data
      const fetchWeather=async(lat,lon)=>{
-        setLoading(true)
-        setError(null)
+        //setLoading(true)
+        //setError(null)
 
         const url=lat&&lon
              ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
@@ -37,6 +37,7 @@ function MainPage(){
             }
         }catch(error){
             setError('Weather loading failed: '+error.message);
+            console.error('Error fetching weather:', error)
         }finally{
             setLoading(false);
         }
@@ -79,7 +80,7 @@ function MainPage(){
         }
     },[weather,user])
     
-    
+
         //function to create new snowflake element
         function createSnowflakes(){
             const snowflakesContainer=document.getElementById('snowflakes-container')

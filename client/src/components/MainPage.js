@@ -20,8 +20,6 @@ function MainPage(){
   
      //fetch weather data
      const fetchWeather=async(lat,lon)=>{
-        //setLoading(true)
-        //setError(null)
 
         const url=lat&&lon
              ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`

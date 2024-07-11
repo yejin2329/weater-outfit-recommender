@@ -92,9 +92,11 @@ function MainPage(){
                 const size=Math.random()*(15-10)+10+'px';
                 snowflake.style.width=size;
                 snowflake.style.height=size;
-                const position=Math.random()*100+'%';
-                snowflake.style.left=position;
-                snowflake.style.opacity=0.5+Math.random()*0.5;
+                const positionX=Math.random()*100+'%';
+                const positionY=Math.random()*100+'%';
+                snowflake.style.left=positionX;
+                snowflake.style.top=positionY;
+                //snowflake.style.opacity=0.5+Math.random()*0.5;
                 snowflake.style.animationName="falling-snow";
                 snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
                 snowflake.style.animationTimingFunction='linear';

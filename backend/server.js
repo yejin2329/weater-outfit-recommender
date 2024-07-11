@@ -71,7 +71,7 @@ app.get('/weather', async(req,res)=>{
   try{
     const user=await User.findById(_id)
     if(!user){
-      console.log("No use found with Id: ${_ID")
+      console.log(`No user found with ID: ${_id}`)
       return res.status(404).send("User not found");
     }
     if(user&&user.defaultLocation){

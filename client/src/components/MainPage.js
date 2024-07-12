@@ -78,7 +78,7 @@ function MainPage(){
         }
     },[weather,user])
     
-
+    useEffect(()=>{
         //function to create new snowflake element
         function createSnowflakes(){
             const snowflakesContainer=document.getElementById('snowflakes-container')
@@ -107,7 +107,7 @@ function MainPage(){
     }
         createSnowflakes();
   
-
+})
     
     return(
         <div className="page-container">

@@ -19,8 +19,13 @@ function MainPage(){
 
   
      //fetch weather data
-     const fetchWeather=async(lat,lon)=>{
-
+     const fetchWeather=async()=>{
+        if(!user || (!location && !customLocation)){
+            console.error("No user or location data available.")
+            return;
+        }
+        
+        const {lat, lon}=location || customLocation;
         const url=lat&&lon
              ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
              : `http://localhost:5000/weather?userId=${user._id}`;

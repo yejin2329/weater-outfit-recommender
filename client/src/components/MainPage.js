@@ -7,12 +7,10 @@ import recommendOutfit from './OutfitRecommender';
 function MainPage(){
     const[customLocation, setCustomLocation]=useState(null);
     const [location, setLocation]=useState(null);
-
     const [weather, setWeather]=useState(null);
     const [loading, setLoading]=useState(false);
     const [error, setError]=useState(null);
     const{user, logout}=useAuth();
-
     const[OutfitRecommendations, setOutfitRecommendations]=useState([]);
 
     console.log('User in MainPage:', user);
@@ -114,6 +112,10 @@ function MainPage(){
         createSnowflakes();
   
 })
+    //add debug
+    console.log('Weather:', weather);
+    console.log('Loading:', loading);
+    console.log('Error:', error);
     
     return(
         <div className="page-container">

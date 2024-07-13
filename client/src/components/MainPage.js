@@ -32,11 +32,12 @@ function MainPage(){
     
         try{
             const response=await fetch(url);
-            const data=await response.json();
             if(response.ok){
+                const data=await response.json();
                 setWeather(data);
             }else{
-                throw new Error(data.message || 'Failed to fetch weather data')
+                const errorData=await response.text();
+                throw new Error(errorData || 'Failed to fetch weather data')
             }
         }catch(error){
             setError('Weather loading failed: '+error.message);

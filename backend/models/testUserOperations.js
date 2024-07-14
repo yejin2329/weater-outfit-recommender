@@ -24,7 +24,6 @@ async function createUser() {
         console.log('User created:', newUser);
     } catch (error) {
         console.error('Error creating user:', error.message);
-        //console.log(error);
     }
 }
 

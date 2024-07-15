@@ -76,7 +76,12 @@ function MainPage(){
        
     },[]);
 
-    //
+    //manual test to see how it behaves with certain data
+    useEffect(()=>{
+        setWeather({temperature:20, description:"Sunny"});
+        setLoading(false);
+    }, [])
+    
     useEffect(()=>{
         if(weather && user){
             console.log("Weather data:", weather);

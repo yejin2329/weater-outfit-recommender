@@ -27,9 +27,13 @@ function MainPage(){
         const url=lat&&lon
              ? `http://localhost:5000/weather?lat=${lat}&lon=${lon}`
              : `http://localhost:5000/weather?userId=${user._id}`;
-    
+        
+        console.log("URL:", url);
+
         try{
             const response=await fetch(url);
+            console.log("Response status:", response.status);
+            
             if(response.ok){
                 const data=await response.json();
                 setWeather(data);

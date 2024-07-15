@@ -33,12 +33,14 @@ function MainPage(){
         try{
             const response=await fetch(url);
             console.log("Response status:", response.status);
-            
+
             if(response.ok){
                 const data=await response.json();
+                console.log("Weather data fetched:", data);
                 setWeather(data);
             }else{
                 const errorData=await response.text();
+                console.error("Failed to fetch weather data:", errorData)
                 throw new Error(errorData || 'Failed to fetch weather data')
             }
         }catch(error){

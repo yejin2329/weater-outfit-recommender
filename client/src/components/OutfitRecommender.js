@@ -11,18 +11,14 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
 
         //to add sensitive items
         const addSensitiveItems=()=>{
-            if(sensitivity.coldSensitive){
+            if(sensitivity.coldSensitive && weather.temperature<15){
                 recommendations.push('Scarf', 'Gloves')
-                if(!weather.condition.includes('rain')&&weather.temperature>=5){
-                    recommendations.push(preferences.cold || 'Light Jacket')
-                }
             }
-            if(sensitivity.heatSensitive){
+            
+            if(sensitivity.heatSensitive && weather.temperature>25){
                 recommendations.push('Sun Hat')
-                if(weather.temperature<20){
-                    recommendations.push(preferences.hot || 'Light Shirt')
-                }
             }
+            
             if(sensitivity.rainSensitive&&weather.condition.includes('rain')){
                 recommendations.push('Umbrella')
             }

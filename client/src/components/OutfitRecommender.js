@@ -34,7 +34,7 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
         }
        
         //check for rainy weather
-        if(weather.condition.includes('rain')){
+        if(weather.condition&&weather.condition.includes('rain')){
             recommendations.push(...(preferences.rainy ? [preferences.rainy] : defaultClothing.rainy));
         }
 

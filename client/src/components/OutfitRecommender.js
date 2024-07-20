@@ -9,8 +9,10 @@ const recommendOutfit=(weather, preferences, sensitivity)=>{
             rainy:['Waterproof Jacket']
         }
         //default 
+        preferences.cold=preferences.cold || defaultClothing.cold;
         preferences.hot=preferences.hot || defaultClothing.hot;
-        
+        preferences.rainy=preferences.rainy || defaultClothing.rainy;
+
         //to add sensitive items
         const addSensitiveItems=()=>{
             if(sensitivity.coldSensitive && weather.temperature<15){
